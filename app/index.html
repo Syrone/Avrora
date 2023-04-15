@@ -2,23 +2,92 @@
 <!--#include virtual="/parts/head.html" -->
 <!--#include virtual="/parts/header.html" -->
 
-	<div class="wrapper">
+<main>
+	<section class="wrapper-bg">
 		<div class="swiper swiper-bg">
 			<div class="swiper-wrapper">
 				<div class="swiper-slide">
-					<div class="random-bg" id="randomBg"></div>
+					<div class="swiper-bg-random" id="randomBg"></div>
 				</div>
 				<div class="swiper-slide">
-					<div class="themeBg">1</div>
+					<div class="swiper-bg-theme"></div>
 				</div>
 			</div>
 		</div>
-	</div>
+	</section>
 
-	<!-- <a href="#" class="btn btn-social btn-social-discord">
-		<svg>
-			<use xlink:href="./images/dist/icon/vk.svg#vk"></use>
-		</svg>
-	</a> -->
+	<section class="hero">
+		<div class="container">
+			<div class="swiper hero-swiper">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<div class="hero-slide">
+							<div class="hero-content">
+								<div class="hero-top">
+									<h1 class="hero-content-title">
+										Сервер Aurora
+									</h1>
+									<p class="hero-content-text">
+										Много карт для прохождения, красивые скины, быстрое подключение, игра по сети. Самый быстрый лаунчер для игры в майнкрафт  
+									</p>
+									<h2 class="hero-content-subtitle">
+										Скачивайте лаунчер и играйте
+									</h2>
+								</div>
+								<div class="hero-middle">
+									<a href="#" class="btn btn-start">
+										Начать играть
+									</a>
+									<div class="hero-middle-os">
+										<svg class="windows">
+											<use xlink:href="./images/dist/icon/windows.svg#windows"></use>
+										</svg>
+										<svg class="ios">
+											<use xlink:href="./images/dist/icon/ios.svg#ios"></use>
+										</svg>
+										<svg class="linux">
+											<use xlink:href="./images/dist/icon/linux.svg#linux"></use>
+										</svg>
+									</div>
+								</div>
+								<div class="hero-bottom">
+									<h3 class="hero-bottom-title">
+										Вы можете посмотреть на нас в:
+									</h3>
+
+									<div class="hero-bottom-socials">
+										<a href="#" class="hero-social btn btn-social btn-social-vk">
+											<svg>
+												<use xlink:href="./images/dist/icon/vk.svg#vk"></use>
+											</svg>
+										</a>
+										<a href="#" class="hero-social btn btn-social btn-social-telegram">
+											<svg>
+												<use xlink:href="./images/dist/icon/telegram.svg#telegram"></use>
+											</svg>
+										</a>
+										<a href="#" class="hero-social btn btn-social btn-social-discord">
+											<svg>
+												<use xlink:href="./images/dist/icon/discord.svg#discord"></use>
+											</svg>
+										</a>
+									</div>
+								</div>
+							</div>
+							<div class="hero-image">
+								<img src="./images/dist/hero.png" alt="hero"
+									class="img-cover">
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide">Slide 2</div>
+				</div>
+
+				<div class="swiper-pagination"></div>
+			 </div>
+		</div>
+	</section>
+
+</main>
 
 <!--#include virtual="/parts/footer.html" -->

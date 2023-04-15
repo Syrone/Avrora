@@ -1,5 +1,4 @@
-.wrapper
-	height: 100vh
+.wrapper-bg
 	position: absolute
 	top: 0
 	bottom: 0
@@ -7,17 +6,27 @@
 	right: 0
 .swiper-bg
 	z-index: -1
-.random-bg
-	height: 100vh
-	background-repeat: no-repeat
-	background-size: cover
-	background-position: center
-	position: relative
-	&::after
-		content: ''
-		position: absolute
-		top: 0
-		right: 0
-		bottom: 0
-		left: 0
-		box-shadow: inset 0 0 200px 250px var(--body-color)
+	&-random
+		width: 100%
+		height: 100vh
+		min-height: 1080px
+		background-repeat: no-repeat
+		background-size: cover
+		background-position: center
+		position: relative
+		transition: .5s ease-in-out
+		&::after
+			content: ''
+			position: absolute
+			top: 0
+			right: 0
+			bottom: 0
+			left: 0
+			box-shadow: inset 0 0 200px 250px var(--body-color)
+			// background: var(--body-gradient)
+			transition: .5s ease-in-out
+	&-theme
+		width: 100%
+		height: 100vh
+		background-color: var(--body-color)
+		transition: .5s ease-in-out

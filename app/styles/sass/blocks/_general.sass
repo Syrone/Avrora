@@ -4,6 +4,7 @@
 	max-width: 1517px
 	margin-inline: auto
 	padding-inline: $gutter
+
 .btn
 	display: flex
 	align-items: center
@@ -12,9 +13,9 @@
 	font-size: 32px
 	font-weight: 700
 	padding: 18px
-	transition: .3s ease-in-out
+	transition: .5s ease-in-out
 	svg
-		transition: .3s ease-in-out
+		transition: .5s ease-in-out
 	&-start
 		min-width: 535px
 		border-radius: 43px
@@ -22,11 +23,11 @@
 		color: #fff
 		&:hover
 			color: #fff
-			box-shadow: var(--box-shadow)
+			box-shadow: var(--box-shadow-1)
 		&:focus
 			background-color: #fff
 			color: #000
-			box-shadow: var(--box-shadow)
+			box-shadow: var(--box-shadow-1)
 	&-log
 		min-width: 580px
 		border-radius: 12px
@@ -37,28 +38,34 @@
 			background-color: var(--color-btn-light)
 	&-social
 		min-width: 190px
-		padding: 25px
+		min-height: 75px
+		padding: 10px
 		border-radius: 18px
 		&-vk
 			background-color: #2787F5
+			svg
+				width: 43px
+				height: 25px
 		&-telegram
 			background-color: #28AAEB
+			svg
+				width: 39px
+				height: 33px
 		&-discord
 			background-color: #5769E7
+			svg
+				width: 41px
+				height: 30px
 		svg
 			display: block
-			width: 43px
-			height: 25px
 			fill: #fff
 			object-fit: cover
+			transition: .5s ease-in-out
 		&:is(:hover, :focus)
 			background-color: var(--body-color)
 			box-shadow: var(--box-shadow-2)
 			svg
 				fill: var(--text-color)
-
-
-
 
 .logo
 	display: inline-block
@@ -70,6 +77,7 @@
 		height: 100%
 		fill: var(--text-color)
 		object-fit: cover
+		transition: .5s ease-in-out
 
 .user
 	display: inline-block
@@ -81,15 +89,43 @@
 		height: 100%
 		fill: var(--text-color)
 		object-fit: cover
-		
+		transition: .5s ease-in-out
+
+.windows
+	width: 67px
+	height: 63px
+	fill: var(--text-color)
+	transition: .5s ease-in-out
+
+.ios
+	width: 53px
+	height: 64px
+	fill: var(--text-color)
+	transition: .5s ease-in-out
+
+.linux
+	width: 57px
+	height: 66px
+	fill: var(--text-color)
+	transition: .5s ease-in-out
+
+.img-cover
+	width: 100%
+	height: 100%
+	object-fit: cover
+
 .ri-moon-line
 	display: inline-block
-	width: 39px
+	width: 47px
 	height: 46px
 	background-image: url(../images/dist/icon/dark-theme.svg)
+	background-repeat: no-repeat
+	transition: .5s ease-in-out
 
 .ri-sun-line
 	display: inline-block
 	width: 47px
 	height: 48px
 	background-image: url(../images/dist/icon/light-theme.svg)
+	background-repeat: no-repeat
+	transition: .5s ease-in-out

@@ -1,20 +1,30 @@
 .header
-	padding-block: 50px 40px
+	padding-block: 40px
 	background-color: transparent
 	position: fixed
 	top: 0
 	right: 0
 	left: 0
+	z-index: 100
+	transition: .5s ease-in-out
 	.container
 		display: flex
 		align-items: center
 		justify-content: space-between
-
+	&-bg
+		background-color: var(--body-color)
+		box-shadow: 0 12px 30px rgb(var(--body-color) / 60%)
 .nav
 	&-list
 		display: flex
 		align-items: center
 		gap: 100px
+		font-family: $secondfont
+		font-weight: 300
+	&-link
+		transition: .3s ease-in-out
+		&:is(:hover, :focus)
+			text-shadow: 1px 0 1px currentColor
 	&-buttons
 		display: flex
 		gap: 100px

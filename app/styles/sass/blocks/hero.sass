@@ -1,0 +1,62 @@
+.hero
+	.container
+		max-width: 100%
+		padding-inline: 0
+	&-swiper
+		padding-top: 150px
+		.swiper-pagination
+			bottom: 0
+			&-bullet
+				width: 52px
+				height: 38px
+				border-radius: 0
+				background: var(--color-btn-light)
+				opacity: 1
+				&-active
+					background: var(--first-color)
+	&-content
+		&-title
+			margin-bottom: 25px
+		&-text
+			max-width: 550px
+			margin-bottom: 20px
+		&-subtitle
+			margin-bottom: 40px
+	&-slide
+		display: flex
+		justify-content: center
+		align-items: center
+		gap: 100px
+	&-middle
+		display: flex
+		align-items: center
+		gap: 45px
+		padding-bottom: 50px
+		&-os
+			display: flex
+			align-items: center
+			gap: 40px
+	&-bottom
+		&-title
+			margin-bottom: 18px
+		&-socials
+			display: flex
+			align-items: center
+			gap: 14px
+	&-image
+		position: relative
+		&::before
+			content: ''
+			width: 574px
+			height: 611px
+			border-radius: 100%
+			background-color: var(--body-hero)
+			filter: var(--filter-blur)
+			position: absolute
+			top: 40%
+			right: -75px
+			transform: translateY(-50%)
+			z-index: -1
+
+
+

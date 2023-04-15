@@ -1,8 +1,9 @@
 // USER VARIABLES SECTION
 
 $fontsize: 24px // Body Font Size
-$lineheight: 1.65 // Document Line Height
+$lineheight: 28px // Document Line Height
 $userfont: roboto-oh5, sans-serif // User Font Family
+$secondfont: Ubuntu, sans-serif
 $systemfont: -apple-system, BlinkMacSystemFont, Arial, sans-serif // System Font Family
 
 // Bootstrap compatible gutter variable => $gutter
@@ -11,7 +12,6 @@ $gutter: $grid-gutter-width
 
 // IMPORT SECTION
 
-@import 'node_modules/bootstrap/scss/bootstrap-reboot.scss' // Bootstrap Reboot collection
 @import 'node_modules/bootstrap/scss/mixins/_breakpoints.scss' // Bootstrap Breakpoints mixin
 @import 'node_modules/swiper/swiper-bundle' // Swiper
 // @import 'node_modules/bootstrap/scss/bootstrap-grid.scss' // Optional Bootstrap Grid
@@ -43,11 +43,13 @@ $gutter: $grid-gutter-width
 	--color-btn-light: #8FC1F9
 	--hover-color: #fff
 	--body-color: #fff
+	--body-hero: #8FC1F9
 	--text-color: #000
 	--gradient-color: linear-gradient(324deg, #2A89F5 2%, #80B9F8 106%)
-	--body-gradient: radial-gradient(50% 50% at 50% 50%, var(--body-color) 0%, var(--body-color) 100%)
+	--body-gradient: radial-gradient(50% 50% at 50% 50%, transparent 0%, var(--body-color) 100%)
 	--box-shadow-1: 47px 22px 40px rgba(5, 174, 218, 0.25)
 	--box-shadow-2: 4px -7px 21px rgba(70, 102, 99, 0.25)
+	--filter-blur: blur(116px)
 
 ::placeholder
 	color: #666
@@ -55,6 +57,13 @@ $gutter: $grid-gutter-width
 ::selection
 	background-color: var(--first-color)
 	color: #fff
+
+*,
+*::after,
+*::before
+	margin: 0
+	padding: 0
+	box-sizing: border-box
 
 input, textarea
 	outline: none
@@ -72,11 +81,13 @@ body
 	min-width: 320px
 	position: relative
 	overflow-x: hidden
+	transition: .5s ease-in-out
 
 button
 	background: none
 	border: none
 	font: inherit
+	cursor: pointer
 
 img
 	max-width: 100%
@@ -88,5 +99,6 @@ ul
 	list-style: none
 
 a
-	color: inherit
+	color: var(--text-color)
 	text-decoration: none
+	transition: .5s ease-in-out
