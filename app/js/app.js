@@ -1,17 +1,16 @@
-import Swiper, {Pagination, Controller} from 'swiper'
+import Swiper, { Pagination, Controller } from 'swiper'
 Swiper.use([Pagination, Controller])
 
 document.addEventListener('DOMContentLoaded', () => {
 
 	const randomBg = document.getElementById('randomBg'),
-			images = ['images/dist/background/light-bg-1.jpg','images/dist/background/light-bg-2.jpg','images/dist/background/light-bg-3.jpg']
-	
-	const imgCount = images.length,
-			number = Math.floor(Math.random() * imgCount)
+		imagesLight = ['images/dist/background/light-bg-1.jpg', 'images/dist/background/light-bg-2.jpg', 'images/dist/background/light-bg-3.jpg'],
+		imagesDark = ['images/dist/background/dark-bg-1.jpg', 'images/dist/background/dark-bg-2.jpg', 'images/dist/background/dark-bg-3.jpg']
 
-	window.onload = function() {
-		randomBg.style.backgroundImage = `url(${images[number]})`
-	}
+	const imgCountDark = imagesDark.length,
+		numberDark = Math.floor(Math.random() * imgCountDark),
+		imgCountLight = imagesLight.length,
+		numberLight = Math.floor(Math.random() * imgCountLight)
 
 	const swiperBg = new Swiper('.swiper-bg', {});
 
@@ -19,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		pagination: {
 			el: '.swiper-pagination',
 			clickable: true,
-		 },
+		},
 	})
 
 	swiperBg.controller.control = swiperHero
@@ -29,8 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	const scrollHeader = () => {
 		const header = document.getElementById('header')
 		// When the scroll is greater than 50 viewport height, add the .scroll-header
-		globalThis.scrollY >= 50  ? header.classList.add('header-bg')
-								  : header.classList.remove('header-bg')
+		globalThis.scrollY >= 50 ? header.classList.add('header-bg')
+			: header.classList.remove('header-bg')
 	}
 	window.addEventListener('scroll', scrollHeader)
 
@@ -63,5 +62,13 @@ document.addEventListener('DOMContentLoaded', () => {
 		localStorage.setItem('selected-theme', getCurrentTheme())
 		localStorage.setItem('selected-icon', getCurrentIcon())
 	})
+
+	const getCurrentBg = () => document.body.classList.contains(darkTheme) ?
+		randomBg.style.backgroundImage = `url(${imagesDark[numberDark]})` :
+		randomBg.style.backgroundImage = `url(${imagesLight[numberLight]})`
+
+	window.onload = () => { getCurrentBg() }
+
+	themeButton.addEventListener('click', () => { getCurrentBg() })
 
 })
