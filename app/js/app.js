@@ -69,6 +69,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	window.onload = () => { getCurrentBg() }
 
-	themeButton.addEventListener('click', () => { getCurrentBg() })
+	themeButton.addEventListener('click', getCurrentBg)
 
 })
