@@ -1,5 +1,5 @@
-import Swiper, {Pagination} from 'swiper'
-Swiper.use([Pagination])
+import Swiper, {Pagination, Controller} from 'swiper'
+Swiper.use([Pagination, Controller])
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -21,6 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
 			clickable: true,
 		 },
 	})
+
+	swiperBg.controller.control = swiperHero
+	swiperHero.controller.control = swiperBg
 
 	// CHANGE BACKGROUND HEADER
 	const scrollHeader = () => {

@@ -6,7 +6,7 @@
 	right: 0
 	left: 0
 	z-index: 100
-	transition: .5s ease-in-out
+	transition: var(--trt-theme)
 	.container
 		display: flex
 		align-items: center
@@ -21,11 +21,51 @@
 		gap: 100px
 		font-family: $secondfont
 		font-weight: 300
-	&-link
-		transition: .3s ease-in-out
+	&-item
+		position: relative
 		&:is(:hover, :focus)
-			text-shadow: 1px 0 1px currentColor
+			.nav-link
+				text-shadow: 1px 0 1px currentColor
+				transition: var(--trt)
+			.sub-nav-list
+				padding: 30px 40px
+				visibility: visible
+				opacity: 1
+	&-link
+		padding-block: 25px
+		transition: var(--trt-theme)
 	&-buttons
 		display: flex
 		gap: 100px
+
+.sub-nav
+	&-list
+		display: flex
+		gap: 20px
+		flex-direction: column
+		align-items: center
+		justify-content: center
+		text-align: center
+		padding: 0
+		border-radius: 8px
+		background: var(--gradient-color)
+		position: absolute
+		left: 50%
+		transform: translateX(-50%)
+		top: 50px
+		visibility: hidden
+		opacity: 0
+		transition: var(--trt)
+		svg
+			display: block
+			width: 26px
+			height: 14px
+	&-link 
+		font-size: 20px
+		font-weight: 300
+		white-space: nowrap
+		color: #fff
+		&:hover
+			text-shadow: 1px 0 1px #fff
+			transition: var(--trt)
 

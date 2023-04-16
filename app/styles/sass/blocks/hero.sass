@@ -1,7 +1,7 @@
 .hero
 	.container
-		max-width: 100%
 		padding-inline: 0
+		max-width: 100%
 	&-swiper
 		padding-top: 150px
 		.swiper-pagination
@@ -11,9 +11,11 @@
 				height: 38px
 				border-radius: 0
 				background: var(--color-btn-light)
+				transition: var(--trt-theme)
 				opacity: 1
 				&-active
 					background: var(--first-color)
+					transition: var(--trt-theme)
 	&-content
 		&-title
 			margin-bottom: 25px
@@ -27,6 +29,65 @@
 		justify-content: center
 		align-items: center
 		gap: 100px
+		&-server
+			flex-direction: column
+			gap: 25px
+			max-width: 1420px
+			margin-inline: auto
+			padding: 30px
+			border-radius: 33px
+			background: var(--body-server)
+			transition: var(--trt-theme)
+		&-title
+			font-size: 48px
+			font-weight: 700
+			line-height: normal
+			color: #fff
+	&-server
+		width: 100%
+		border-radius: 32px
+		padding: 44px 20px
+		color: var(--text-color)
+		background-color: var(--body-server-light)
+		transition: var(--trt-theme)
+		&-list
+			display: flex
+			flex-direction: column
+			gap: 30px
+			padding-inline: 40px
+			max-height: 500px
+			overflow-y: scroll
+			&::-webkit-scrollbar
+				width: 12px
+				background-color: transparent
+				border-radius: 7px
+				&-thumb
+					border-radius: 7px
+					background-color: var(--body-scrollbar)
+					transition: var(--trt-theme)
+		&-item
+			display: flex
+			justify-content: space-between
+			position: relative
+			padding-inline: 15px
+			padding-bottom: 10px
+			&::before
+				content: ''
+				border-bottom: 1px solid var(--text-color)
+				transition: var(--trt-theme)
+				position: absolute
+				bottom: 0
+				left: 0
+				right: 0
+		&-name
+			font-weight: 500
+		&-online
+			display: flex
+			gap: 15px
+			font-weight: 700
+			span:last-child
+				text-align: center
+				min-width: 100px
 	&-middle
 		display: flex
 		align-items: center
@@ -56,6 +117,7 @@
 			top: 40%
 			right: -75px
 			transform: translateY(-50%)
+			transition: var(--trt-theme)
 			z-index: -1
 
 

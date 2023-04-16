@@ -43,13 +43,18 @@ $gutter: $grid-gutter-width
 	--color-btn-light: #8FC1F9
 	--hover-color: #fff
 	--body-color: #fff
+	--body-server: #2787F5
+	--body-server-light: #93C3FA
 	--body-hero: #8FC1F9
+	--body-scrollbar: #485BFF66
 	--text-color: #000
 	--gradient-color: linear-gradient(324deg, #2A89F5 2%, #80B9F8 106%)
 	--body-gradient: radial-gradient(50% 50% at 50% 50%, transparent 0%, var(--body-color) 100%)
 	--box-shadow-1: 47px 22px 40px rgba(5, 174, 218, 0.25)
 	--box-shadow-2: 4px -7px 21px rgba(70, 102, 99, 0.25)
 	--filter-blur: blur(116px)
+	--trt: .3s ease-in-out
+	--trt-theme: .5s ease-in-out
 
 ::placeholder
 	color: #666
@@ -81,7 +86,7 @@ body
 	min-width: 320px
 	position: relative
 	overflow-x: hidden
-	transition: .5s ease-in-out
+	transition: var(--trt-theme)
 
 button
 	background: none
@@ -101,4 +106,13 @@ ul
 a
 	color: var(--text-color)
 	text-decoration: none
-	transition: .5s ease-in-out
+	transition: var(--trt-theme)
+
+::-webkit-scrollbar
+	width: 12px
+	background-color: transparent
+	border-radius: 7px
+	&-thumb
+		border-radius: 7px
+		background-color: var(--body-scrollbar)
+		transition: var(--trt-theme)
