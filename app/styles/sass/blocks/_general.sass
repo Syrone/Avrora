@@ -24,10 +24,11 @@
 		&:hover
 			color: #fff
 			box-shadow: var(--box-shadow-1)
-		&:focus
+		&:active, &:focus
 			background-color: #fff
 			color: #000
 			box-shadow: var(--box-shadow-1)
+			transition: none
 	&-log
 		min-width: 580px
 		border-radius: 12px
@@ -129,3 +130,18 @@
 	background-image: url(../images/dist/icon/dark-theme.svg)
 	background-repeat: no-repeat
 	transition: var(--trt-theme)
+
+.wrapper
+	display: grid
+	grid-template-columns: repeat(2, 1fr)
+	gap: 35px
+	justify-items: center
+	width: 100%
+
+.item
+	display: flex
+	flex-direction: column
+	width: 100%
+	min-height: 350px
+	border-radius: 20px
+	background-color: var(--body-connect-light)

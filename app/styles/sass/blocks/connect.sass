@@ -1,0 +1,42 @@
+.connect
+	.container
+		display: flex
+		flex-direction: column
+		align-items: center
+		gap: 25px
+		max-width: 1230px
+		padding-top: 150px
+	&-item
+		width: 100%
+		max-width: 580px
+		justify-content: flex-end
+		padding-block: 25px
+		padding-inline: 65px 15px
+		position: relative
+		&:is(:hover, :active, :focus)
+			background-color: var(--body-connect)
+		&:nth-child(3)
+			justify-content: center
+		&:nth-child(n+3)
+			.connect-item-content
+				flex-direction: row
+				justify-content: space-between
+				height: 100%
+			.connect-item-img
+				align-self: flex-end
+		&-content
+			display: flex
+			flex-direction: column
+			align-items: center
+		&-counter, &-title
+			font-weight: 700
+		&-counter
+			position: absolute
+			top: 25px
+			left: 65px
+			font-size: 36px
+		&-title
+			font-size: 32px
+			line-height: 40px
+		&-img
+			margin-left: auto
