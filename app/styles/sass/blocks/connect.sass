@@ -13,8 +13,11 @@
 		padding-block: 25px
 		padding-inline: 65px 15px
 		position: relative
-		&:is(:hover, :active, :focus)
+		&:is(:hover, :focus, :active)
 			background-color: var(--body-connect)
+		&:is(:focus, :active)
+			background-color: var(--body-connect)
+			color: var(--text-color-focus)
 		&:nth-child(3)
 			justify-content: center
 		&:nth-child(n+3)
