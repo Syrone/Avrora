@@ -21,11 +21,17 @@
 		gap: 100px
 		font-family: $secondfont
 		font-weight: 300
+		& > li:is(:hover, :focus)
+			text-shadow: 1.5px 0 1.5px currentColor
+			transition: text-shadow var(--trt)
 	&-item
 		position: relative
-		&:is(:hover, :focus)
+		color: var(--text-color)
+		transition: background var(--trt-theme), color var(--trt-theme)
+		cursor: pointer
+		&:is(:hover, :focus-within)
 			.nav-link
-				text-shadow: 1px 0 1px currentColor
+				text-shadow: 1.5px 0 1.5px currentColor
 				transition: var(--trt)
 			.sub-nav-list
 				padding: 30px 40px
@@ -65,7 +71,8 @@
 		font-weight: 300
 		white-space: nowrap
 		color: #fff
+		text-shadow: none
 		&:is(:hover, :focus)
-			text-shadow: 1px 0 1px #fff
+			text-shadow: 1.5px 0 1.5px #fff
 			transition: var(--trt)
 
