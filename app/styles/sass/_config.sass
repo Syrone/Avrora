@@ -1,10 +1,11 @@
 // USER VARIABLES SECTION
 
-$fontsize: 24px // Body Font Size
-$lineheight: 28px // Document Line Height
 $userfont: roboto-oh5, sans-serif // User Font Family
 $secondfont: Ubuntu, sans-serif
 $systemfont: -apple-system, BlinkMacSystemFont, Arial, sans-serif // System Font Family
+
+$maxWidth: 3840
+$maxWidthContainer: 1517
 
 // Bootstrap compatible gutter variable => $gutter
 $grid-gutter-width: 15px
@@ -26,6 +27,25 @@ $gutter: $grid-gutter-width
 		font-weight: $fweight
 		src: url($furl) format('woff2')
 
+// ADAPTIVE PROPERTY
+@mixin adaptive-value($property, $startSize, $minSize, $type)
+	$addSize: $startSize - $minSize
+	@if $type==1 
+		#{$property}: $startSize + px
+		@media (max-width: #{$maxWidthContainer + px})
+			#{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidthContainer - 320}))
+	@else if $type==2
+		#{$property}: $startSize + px
+		@media ( min-width: #{$maxWidthContainer} + px )
+			#{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320}))
+	@else 
+		#{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320}))
+
+// REM
+@function rem($px)
+	$result: math.div($px, 16) + rem
+	@return $result
+
 @include font('Ubuntu', normal, 300, '../fonts/Ubuntu-Light.woff2')
 @include font('Ubuntu', normal, 400, '../fonts/Ubuntu-Regular.woff2')
 @include font('Ubuntu', italic, 400, '../fonts/Ubuntu-Italic.woff2')
@@ -37,6 +57,8 @@ $gutter: $grid-gutter-width
 // GENERAL CSS SETTINGS
 
 :root
+	--fontSize: 1.5rem
+	--lineheight: normal
 	--first-color: #2787F5
 	--first-color-light: #93C3FA
 	--color-btn: #472E93
@@ -85,8 +107,8 @@ html
 
 body
 	font-family: $userfont
-	font-size: $fontsize
-	line-height: $lineheight
+	font-size: var(--fontSize)
+	line-height: var(--lineheight)
 	color: var(--text-color)
 	background-color: var(--body-color)
 	min-width: 320px
@@ -108,6 +130,9 @@ ul
 	padding: 0
 	margin: 0
 	list-style: none
+
+h1, h2
+	font-size: rem(48)
 
 a
 	color: var(--text-color)

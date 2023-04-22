@@ -1,0 +1,251 @@
+@media ( min-width: 2048px )
+	.swiper-bg-random
+		min-height: unset
+		height: 100vh
+
+@media ( min-width: 2400px )
+
+	:root
+		--fontSize: 3rem
+		// --lineheight: 5rem
+
+	h1, h2
+		font-size: rem(96)
+
+	.container
+		max-width: unset
+		@include adaptive-value('padding-inline', 100, 50, 2)
+
+	.btn
+		font-size: rem(64)
+		padding: rem(36) rem(100)
+		&-start
+			border-radius: rem(80)
+		&-log
+			border-radius: rem(24)
+		&-social
+			min-width: rem(380)
+			min-height: rem(150)
+			padding: rem(20)
+			border-radius: rem(36)
+			&-vk
+				svg
+					width: rem(86)
+					height: rem(50)
+			&-discord
+				svg
+					width: rem(78)
+					height: rem(66)
+			&-telegram
+				svg
+					width: rem(82)
+					height: rem(60)
+
+	.swiper-wrapper
+		display: flex
+		align-items: center
+
+	.logo
+		width: rem(334)
+		height: rem(94)
+
+	.user
+		width: rem(88)
+		height: rem(100)
+
+	.windows
+		width: rem(134)
+		height: rem(126)
+
+	.ios
+		width: rem(106)
+		height: rem(128)
+
+	.linux
+		width: rem(114)
+		height: rem(132)
+
+	.ri-moon-line
+		width: rem(94)
+		height: rem(92)
+
+	.ri-sun-line
+		width: rem(94)
+		height: rem(96)
+	
+	.img-cover
+		width: 30vw
+
+	.header
+		padding-block: 80px
+
+	.nav-item:is(:hover, :focus-within)
+		.sub-nav-list
+			padding: rem(60) rem(80)
+
+	.sub-nav
+		&-list
+			gap: 40px
+			border-radius: rem(16)
+			top: rem(100)
+			.arrow-dropdown
+				width: rem(52)
+				height: rem(28)
+		&-link
+			font-size: rem(40)
+
+	.hero
+		&-swiper
+			padding-top: 190px
+		&-slide
+			gap: 15%
+		&-content
+			&-title
+				margin-bottom: rem(50)
+			&-text
+				max-width: rem(1100)
+				margin-bottom: rem(40)
+			&-subtitle
+				font-size: rem(64)
+				margin-bottom: rem(80)
+		&-middle
+			gap: 90px
+			margin-bottom: rem(100)
+			&-os
+				gap: 80px
+		&-bottom
+			&-title
+				margin-bottom: rem(36)
+			&-socials
+				gap: 28px
+		&-server
+			height: 100%
+			&-list
+				max-height: 900px
+				gap: 60px
+			&-item
+				padding-inline: 30px
+				padding-bottom: 20px
+				&::after
+					height: 2px
+			&-online
+				span:last-child
+					min-width: 200px
+		&-swiper
+			.swiper-pagination-bullet
+				width: rem(104)
+				height: rem(76)
+		.swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet
+			margin: 0 rem(20)
+
+	.footer
+		font-size: rem(40)
+		padding-block: rem(60)
+		&-list
+			gap: 68px
+
+@media ( min-width: 3000px )
+
+	:root
+		--fontSize: 4rem
+
+	h1, h2
+		font-size: rem(144)
+
+	.container
+		max-width: unset
+		@include adaptive-value('padding-inline', 200, 100, 2)
+
+	.btn
+		font-size: rem(96)
+		padding: rem(54) rem(150)
+		&-start
+			border-radius: rem(120)
+		&-log
+			border-radius: rem(36)
+		&-social
+			min-width: rem(570)
+			min-height: rem(225)
+			padding: rem(30)
+			border-radius: rem(54)
+			&-vk
+				svg
+					width: rem(129)
+					height: rem(75)
+			&-discord
+				svg
+					width: rem(117)
+					height: rem(99)
+			&-telegram
+				svg
+					width: rem(123)
+					height: rem(90)
+
+	.logo
+		width: rem(501)
+		height: rem(141)
+
+	.user
+		width: rem(132)
+		height: rem(150)
+
+	.windows
+		width: rem(201)
+		height: rem(189)
+
+	.ios
+		width: rem(159)
+		height: rem(192)
+
+	.linux
+		width: rem(171)
+		height: rem(198)
+
+	.ri-moon-line
+		width: rem(141)
+		height: rem(138)
+
+	.ri-sun-line
+		width: rem(141)
+		height: rem(144)
+
+	.header
+		padding-block: 120px
+
+	.nav-item:is(:hover, :focus-within)
+		.sub-nav-list
+			padding: rem(90) rem(120)
+
+	.sub-nav
+		&-list
+			gap: 60px
+			border-radius: rem(24)
+			top: rem(150)
+			.arrow-dropdown
+				width: rem(78)
+				height: rem(42)
+		&-link
+			font-size: rem(60)
+
+	.hero
+		&-swiper
+			padding-top: 230px
+		&-slide
+			gap: 10%
+		&-content
+			&-text
+				max-width: rem(1500)
+		&-server-list
+			max-height: 1080px
+		&-swiper
+			.swiper-pagination-bullet
+				width: rem(156)
+				height: rem(114)
+		.swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet
+			margin: 0 rem(30)
+
+	.footer
+		font-size: rem(60)
+		padding-block: rem(80)
+		&-list
+			gap: 102px

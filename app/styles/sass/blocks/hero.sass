@@ -7,8 +7,8 @@
 		.swiper-pagination
 			bottom: 0
 			&-bullet
-				width: 52px
-				height: 38px
+				width: rem(52)
+				height: rem(38)
 				border-radius: 0
 				background: var(--color-btn-light)
 				transition: var(--trt-theme)
@@ -16,14 +16,17 @@
 				&-active
 					background: var(--first-color)
 					transition: var(--trt-theme)
+		.swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet
+			margin: 0 rem(10)
 	&-content
 		&-title
-			margin-bottom: 25px
+			margin-bottom: rem(25)
 		&-text
-			max-width: 550px
-			margin-bottom: 20px
+			max-width: rem(550)
+			margin-bottom: rem(20)
 		&-subtitle
-			margin-bottom: 40px
+			font-size: rem(32)
+			margin-bottom: rem(40)
 	&-slide
 		display: flex
 		justify-content: center
@@ -32,15 +35,13 @@
 		&-server
 			flex-direction: column
 			gap: 25px
-			max-width: 1420px
+			max-width: 90vw
 			margin-inline: auto
 			padding: 30px
 			border-radius: 33px
 			background: var(--body-server)
 			transition: var(--trt-theme)
 		&-title
-			font-size: 48px
-			font-weight: 700
 			line-height: normal
 			color: #fff
 	&-server
@@ -71,9 +72,11 @@
 			position: relative
 			padding-inline: 15px
 			padding-bottom: 10px
-			&::before
+			&::after
 				content: ''
-				border-bottom: 1px solid var(--text-color)
+				width: 100%
+				height: 1px
+				background-color: var(--text-color)
 				transition: var(--trt-theme)
 				position: absolute
 				bottom: 0
@@ -92,14 +95,14 @@
 		display: flex
 		align-items: center
 		gap: 45px
-		padding-bottom: 50px
+		margin-bottom: rem(50)
 		&-os
 			display: flex
 			align-items: center
 			gap: 40px
 	&-bottom
 		&-title
-			margin-bottom: 18px
+			margin-bottom: rem(18)
 		&-socials
 			display: flex
 			align-items: center
