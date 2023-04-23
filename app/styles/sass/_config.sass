@@ -61,8 +61,10 @@ $gutter: $grid-gutter-width
 	--lineheight: normal
 	--first-color: #2787F5
 	--first-color-light: #93C3FA
-	--color-btn: #472E93
+	--color-btn: #8FC1F9
 	--color-btn-light: #8FC1F9
+	--color-toggle: #2C71BE
+	--color-toggle-hover: #2787F5
 	--hover-color: #fff
 	--body-color: #fff
 	--body-server: #2787F5
@@ -71,6 +73,7 @@ $gutter: $grid-gutter-width
 	--body-scrollbar: #485BFF66
 	--body-connect: #00BCBD
 	--body-connect-light: #00BCBD47
+	--body-form: #7AFFA7
 	--text-color: #000
 	--text-color-focus: #fff
 	--gradient-color: linear-gradient(324deg, #2A89F5 2%, #80B9F8 106%)
@@ -96,7 +99,21 @@ $gutter: $grid-gutter-width
 	box-sizing: border-box
 
 input, textarea
+	display: block
+	width: 100%
+	font-family: $secondfont
+	line-height: rem(28)
+	font-size: rem(24)
+	padding: rem(18) rem(64)
+	border-radius: rem(44)
+	background: #fff
 	outline: none
+	border: none
+	&::placeholder
+		font-family: $secondfont
+		font-size: rem(24)
+		font-weight: 400
+		color: #3c3c3c
 	&:focus:required:invalid
 		border-color: red
 	&:required:valid
@@ -135,6 +152,7 @@ h1, h2
 	font-size: rem(48)
 
 a
+	font-size: inherit
 	color: var(--text-color)
 	text-decoration: none
 	transition: var(--trt-theme)

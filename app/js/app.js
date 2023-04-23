@@ -63,12 +63,62 @@ document.addEventListener('DOMContentLoaded', () => {
 		localStorage.setItem('selected-icon', getCurrentIcon())
 	})
 
-	const getCurrentBg = () => document.body.classList.contains(darkTheme) ?
+	if(randomBg) {
+		const getCurrentBg = () => document.body.classList.contains(darkTheme) ?
 		randomBg.style.backgroundImage = `url(${imagesDark[numberDark]})` :
 		randomBg.style.backgroundImage = `url(${imagesLight[numberLight]})`
 
-	window.onload = () => { getCurrentBg() }
+		window.onload = () => { getCurrentBg() }
 
-	themeButton.addEventListener('click', getCurrentBg)
+		themeButton.addEventListener('click', getCurrentBg)
+	}
+
+	const addEventOnElements = function (elements, eventType, callback) {
+		for (let i = 0, len = elements.length; i < len; i++) {
+			elements[i].addEventListener(eventType, callback)
+		}
+	}
+
+	//CALLING THE REGISTRATION FORM
+	const signupForm = document.querySelector('[data-form-signup]'),
+		loginForm = document.querySelector('[data-form-login]'),
+		forgotForm = document.querySelector('[data-form-forgot]'),
+		loginLink = document.querySelector('[data-login-link]'),
+		signLink = document.querySelector('[data-signup-link]'),
+		forgotLink = document.querySelector('[data-forgot-link]'),
+		signupBtn = document.querySelectorAll('[data-btn-signup]'),
+		overlay = document.querySelector('[data-overlay]')
+
+	const openForm = function () {
+		overlay.classList.add('active')
+		signupForm.classList.add('active')
+		document.body.classList.add('nav-active')
+	}
+
+	const closeForm = function () {
+		overlay.classList.remove('active')
+		signupForm.classList.remove('active')
+		loginForm.classList.remove('active')
+		forgotForm.classList.remove('active')
+		document.body.classList.remove('nav-active')
+	}
+
+	loginLink.addEventListener('click', () => {
+		signupForm.classList.remove('active')
+		loginForm.classList.add('active')
+	})
+
+	signLink.addEventListener('click', () => {
+		loginForm.classList.remove('active')
+		signupForm.classList.add('active')
+	})
+
+	forgotLink.addEventListener('click', () => {
+		loginForm.classList.remove('active')
+		forgotForm.classList.add('active')
+	})
+
+	addEventOnElements(signupBtn, 'click', openForm)
+	overlay.addEventListener('click', closeForm)
 
 })

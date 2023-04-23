@@ -6,21 +6,21 @@
 	<section class="connect">
 		<div class="container">
 			<h1 class="connect-title">Как подключиться?</h1>
-			<div class="connect-content wrapper">
-				<a href="#" class="connect-item item">
+			<div class="connect-content connect-wrapper">
+				<button type="button" class="connect-item item" data-btn-signup>
 					<span class="connect-item-counter">01</span>
 					<div class="connect-item-content">
 						<h2 class="connect-item-title">Зарегистрируйтесь</h2>
 						<img src="./images/dist/connect/paper.png" width="168" height="134" loading="lazy" alt="Paper"
-							class="connect-item-img">
+							class="connect-item-img paper">
 					</div>
-				</a>
+				</button>
 				<a href="#" class="connect-item item">
 					<span class="connect-item-counter">02</span>
 					<div class="connect-item-content">
 						<h2 class="connect-item-title">Ознакомьтесь с правилами</h2>
 						<img src="./images/dist/connect/book.png" width="160" height="140" loading="lazy" alt="Book"
-							class="connect-item-img">
+							class="connect-item-img book">
 					</div>
 				</a>
 				<a href="#" class="connect-item item">
@@ -28,7 +28,7 @@
 					<div class="connect-item-content">
 						<h2 class="connect-item-title">Скачайте<br> и запустите лаунчер </h2>
 						<img src="./images/dist/connect/sword.png" width="126" height="128" loading="lazy" alt="Sword"
-							class="connect-item-img">
+							class="connect-item-img sword">
 					</div>
 				</a>
 				<a href="#" class="connect-item item">
@@ -36,13 +36,66 @@
 					<div class="connect-item-content">
 						<h2 class="connect-item-title">Приятной игры! Обращайтесь к нам, если возникли проблемы</h2>
 						<img src="./images/dist/connect/hero.png" width="186" height="230" loading="lazy" alt="Hero"
-							class="connect-item-img">
+							class="connect-item-img hero">
 					</div>
 				</a>
 			</div>
 		</div>
 	</section>
 
+	<div class="wrapper-form" data-form-signup>
+		<form action="#" class="form">
+			<h3 class="form-title">
+				<button class="active" type="button">Вход</button>
+				<button type="button" data-login-link>Регистрация</button>
+			</h3>
+			<input type="text" autocomplete="username" name="login" placeholder="Никнейм"
+				class="signup-form-field" required>
+			<input type="email" autocomplete="username" name="Email" placeholder="Email" class="signup-form-field"
+			required>
+			<input type="password" autocomplete="new-password" name="pass1" placeholder="Пароль"
+				class="signup-form-field" required>
+			<input type="password" autocomplete="new-password" name="pass2" placeholder="Повторите пароль"
+				class="signup-form-field" required>
+			<label class="checkbox">
+				<input class="checkbox-input" name="Privacy Policy" type="checkbox" required>
+				<div class="checkbox-box"></div>
+				Я согласен (-на) с политикой конфиденциальности
+			</label>
+			<div class="signup-form-links">
+				<a href="#">Правила</a>
+				<a href="#">Пользовательское соглашение</a>
+				<a href="#">Политика конфиденциальности</a>
+			</div>
+			<button class="btn btn-sign" type="submit">Зарегестрироваться</button>
+		</form>
+	</div>
+
+	<div class="wrapper-form" data-form-login>
+		<form action="#" class="form">
+			<h3 class="form-title">
+				<button type="button" data-signup-link>Вход</button>
+				<button class="active" type="button">Регистрация</button>
+			</h3>
+			<input type="text" autocomplete="username" name="login" placeholder="E-mail"
+				class="login-form-field" required>
+			<input type="password" autocomplete="new-password" name="pass1" placeholder="Пароль"
+				class="login-form-field" required>
+			<button class="btn-transparent" type="button" data-forgot-link>Забыли пароль?</button>
+			<button class="btn btn-sign" type="submit">Войти</button>
+		</form>
+	</div>
+
+	<div class="wrapper-form" data-form-forgot>
+		<form action="#" class="form">
+			<h3 class="form-title">
+				Сброс пароля
+			</h3>
+			<input type="text" autocomplete="username" name="login" placeholder="E-mail"
+				class="login-form-field" required>
+			<button class="btn btn-sign" type="submit" data-forgot-link>Продолжить</button>
+		</form>
+	</div>
 </main>
 
 <!--#include virtual="/parts/footer.html" -->

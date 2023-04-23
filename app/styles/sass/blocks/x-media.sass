@@ -40,6 +40,11 @@
 				svg
 					width: rem(82)
 					height: rem(60)
+		&-transparent
+			font-size: rem(48)
+			&::after
+				height: rem(4)
+				bottom: rem(-4)
 
 	.swiper-wrapper
 		display: flex
@@ -94,9 +99,48 @@
 		&-link
 			font-size: rem(40)
 
+	.item
+		min-height: rem(700)
+		border-radius: rem(40)
+
+	.wrapper-form
+		max-width: 2340px
+		border-radius: rem(120)
+		padding: rem(120) rem(320) rem(80) rem(280)
+		.form
+			gap: 70px
+			&-title
+				font-size: rem(80)
+				button:first-of-type::after
+					font-size: rem(100)
+					right: rem(-26)
+
+	.signup-form-links
+		a
+			gap: 10px
+			& + a::after
+				font-size: rem(60)
+				left: rem(-16)
+
+	input, textarea
+		line-height: rem(56)
+		font-size: rem(48)
+		padding: rem(36) rem(128)
+		border-radius: rem(88)
+		&::placeholder
+			font-size: rem(48)
+
+	.checkbox
+		gap: 16px
+		&-box
+			width: rem(80)
+			height: rem(80)
+			border-radius: rem(10)
+			border-width: 2px
+
 	.hero
 		&-swiper
-			padding-top: 190px
+			padding-top: rem(190)
 		&-slide
 			gap: 15%
 			&-server
@@ -141,9 +185,45 @@
 		.swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet
 			margin: 0 rem(20)
 
+	.connect
+		.container
+			max-width: rem(2400)
+			padding-top: rem(190)
+			@include adaptive-value('padding-inline', 100, 50, 2)
+			gap: 50px
+		&-wrapper
+			gap: 70px
+		&-item
+			max-width: rem(1160)
+			padding-block: rem(50)
+			padding-inline: rem(130) rem(30)
+			&-counter
+				font-size: rem(72)
+				position: absolute
+				top: rem(50)
+				left: rem(130)
+			&-title
+				font-size: rem(64)
+				line-height: rem(80)
+			&-img
+				&.paper
+					width: rem(336)
+					height: rem(268)
+				&.book
+					width: rem(320)
+					height: rem(280)
+				&.sword
+					width: rem(252)
+					height: rem(256)
+				&.hero
+					width: rem(372)
+					height: rem(460)
+
 	.footer
 		font-size: rem(40)
 		padding-block: rem(60)
+		.container
+			gap: 40px
 		&-list
 			gap: 68px
 
@@ -183,6 +263,11 @@
 				svg
 					width: rem(123)
 					height: rem(90)
+		&-transparent
+			font-size: rem(72)
+			&::after
+				height: rem(6)
+				bottom: rem(-6)
 
 	.logo
 		width: rem(501)
@@ -212,6 +297,45 @@
 		width: rem(141)
 		height: rem(144)
 
+	.item
+		min-height: rem(700)
+		border-radius: rem(40)
+
+	.wrapper-form
+		max-width: 3510px
+		border-radius: rem(180)
+		padding: rem(180) rem(480) rem(120) rem(420)
+		.form
+			gap: 105px
+			&-title
+				font-size: rem(120)
+				button:first-of-type::after
+					font-size: rem(150)
+					right: rem(-39)
+
+	.signup-form-links
+		a
+			gap: 15px
+			& + a::after
+				font-size: rem(90)
+				left: rem(-24)
+
+	input, textarea
+		line-height: rem(84)
+		font-size: rem(72)
+		padding: rem(54) rem(192)
+		border-radius: rem(132)
+		&::placeholder
+			font-size: rem(72)
+
+	.checkbox
+		gap: 16px
+		&-box
+			width: rem(120)
+			height: rem(120)
+			border-radius: rem(15)
+			border-width: 3px
+
 	.header
 		padding-block: 120px
 
@@ -230,13 +354,15 @@
 		&-link
 			font-size: rem(60)
 
+	.item
+		min-height: rem(1050)
+		border-radius: rem(60)
+
 	.hero
 		&-swiper
-			padding-top: 230px
+			padding-top: rem(380)
 		&-slide
 			gap: 10%
-			&-slide
-			gap: 15%
 			&-server
 				gap: 75px
 				padding: rem(90) rem(390)
@@ -252,8 +378,43 @@
 		.swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet
 			margin: 0 rem(30)
 
+	.connect
+		.container
+			max-width: rem(3600)
+			padding-top: rem(380)
+			gap: 75px
+		&-wrapper
+			gap: 105px
+		&-item
+			max-width: rem(1740)
+			padding-block: rem(75)
+			padding-inline: rem(195) rem(45)
+			&-counter
+				font-size: rem(108)
+				position: absolute
+				top: rem(75)
+				left: rem(195)
+			&-title
+				font-size: rem(96)
+				line-height: rem(120)
+			&-img
+				&.paper
+					width: rem(504)
+					height: rem(402)
+				&.book
+					width: rem(480)
+					height: rem(420)
+				&.sword
+					width: rem(378)
+					height: rem(384)
+				&.hero
+					width: rem(558)
+					height: rem(690)
+
 	.footer
 		font-size: rem(60)
 		padding-block: rem(80)
+		.container
+			gap: 60px
 		&-list
 			gap: 102px

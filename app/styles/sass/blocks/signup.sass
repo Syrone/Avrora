@@ -1,0 +1,15 @@
+.signup-form
+	&-links
+		a
+			padding: 5px
+			& + a
+				position: relative
+				&::after
+					content: '/'
+					font-size: rem(30)
+					position: absolute
+					left: rem(-8)
+					top: 50%
+					transform: translateY(-50%)
+			&:is(:hover, :focus)
+				text-decoration: underline

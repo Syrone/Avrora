@@ -1,5 +1,21 @@
 // GENERAL PROJECT STYLES
 
+body.nav-active
+	overflow: hidden
+
+.overlay
+	position: fixed
+	inset: 0
+	width: 100%
+	background-color: #101015
+	opacity: 0
+	visibility: hidden
+	transition: var(--trt)
+	&.active
+		visibility: visible
+		opacity: 0.5
+		z-index: 15
+
 .container
 	max-width: 1517px
 	margin-inline: auto
@@ -17,7 +33,7 @@
 	svg
 		transition: var(--trt-theme)
 	&-start
-		min-width: 535px
+		min-width: rem(535)
 		border-radius: rem(40)
 		background-color: #05AEDA
 		color: #fff
@@ -29,13 +45,14 @@
 			color: #000
 			box-shadow: var(--box-shadow-1)
 			transition: none
-	&-log
-		min-width: 580px
+	&-sign
+		min-width: rem(580)
 		border-radius: rem(12)
 		background-color: var(--color-btn)
+		padding: rem(32) rem(100)
 		color: #fff
 		&:is(:hover, :focus)
-			color: var(--hover-color)
+			color: #000
 			background-color: var(--color-btn-light)
 	&-social
 		min-width: rem(190)
@@ -67,6 +84,22 @@
 			box-shadow: var(--box-shadow-2)
 			svg
 				fill: var(--text-color)
+	&-transparent
+		font-size: rem(24)
+		font-weight: 700
+		color: #fff
+		position: relative
+		&::after
+			content: ''
+			width: 0
+			height: rem(2)
+			position: absolute
+			background: #fff
+			left: 0
+			bottom: rem(-2)
+			transition: var(--trt)
+		&:is(:hover, :focus)::after
+			width: 100%
 
 .logo
 	display: inline-block
@@ -146,17 +179,83 @@
 	background-repeat: no-repeat
 	transition: var(--trt-theme)
 
-.wrapper
-	display: grid
-	grid-template-columns: repeat(2, 1fr)
-	gap: 35px
-	justify-items: center
-	width: 100%
-
 .item
 	display: flex
 	flex-direction: column
 	width: 100%
-	min-height: 350px
+	min-height: rem(350)
 	border-radius: rem(20)
 	background-color: var(--body-connect-light)
+
+.wrapper-form
+	display: none
+	max-width: 1170px
+	width: 100%
+	margin-inline: auto
+	background: var(--body-form)
+	border-radius: rem(60)
+	padding: rem(60) rem(160) rem(40) rem(140)
+	position: fixed
+	top: 50%
+	left: 50%
+	transform: translate(-50%, -50%)
+	z-index: 100
+	&.active
+		display: block
+	.form
+		display: flex
+		flex-direction: column
+		align-items: center
+		gap: 35px
+		&-title
+			font-size: rem(40)
+			button
+				color: var(--color-toggle)
+				padding: rem(10)
+				transition: var(--trt)
+				&.active
+					color: #fff !important
+				&:hover
+					color: var(--color-toggle-hover)
+				&:focus
+					color: var(--color-toggle)
+				&:first-of-type
+					position: relative
+					&::after
+						content: '/'
+						font-size: rem(50)
+						font-weight: 300
+						color: #fff
+						position: absolute
+						top: 50%
+						right: rem(-13)
+						transform: translateY(-50%)
+
+.checkbox
+	display: inline-flex
+	align-items: center
+	gap: 8px
+	cursor: pointer
+	position: relative
+	&-input
+		appearance: none
+		background: transparent
+		position: absolute
+		padding: 0
+		&:checked + .checkbox-box::after
+			background: transparent
+			transform: scale(1)
+	&-box
+		display: flex
+		align-items: center
+		justify-content: center
+		flex-shrink: 0
+		width: rem(40)
+		height: rem(40)
+		border-radius: rem(5)
+		border: 1px solid #fff
+		&::after
+			content: '\2714'
+			color: #fff
+			transform: scale(0)
+			transition: var(--trt)
