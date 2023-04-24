@@ -102,23 +102,32 @@ document.addEventListener('DOMContentLoaded', () => {
 		forgotForm.classList.remove('active')
 		document.body.classList.remove('nav-active')
 	}
+	
+	if(loginLink) {
+		loginLink.addEventListener('click', () => {
+			signupForm.classList.remove('active')
+			loginForm.classList.add('active')
+		})
+	}
 
-	loginLink.addEventListener('click', () => {
-		signupForm.classList.remove('active')
-		loginForm.classList.add('active')
-	})
+	if(signLink) {
+		signLink.addEventListener('click', () => {
+			loginForm.classList.remove('active')
+			signupForm.classList.add('active')
+		})
+	}
 
-	signLink.addEventListener('click', () => {
-		loginForm.classList.remove('active')
-		signupForm.classList.add('active')
-	})
+	if(forgotLink) {
+		forgotLink.addEventListener('click', () => {
+			loginForm.classList.remove('active')
+			forgotForm.classList.add('active')
+		})
+	}
 
-	forgotLink.addEventListener('click', () => {
-		loginForm.classList.remove('active')
-		forgotForm.classList.add('active')
-	})
+	if(signupBtn) {
+		addEventOnElements(signupBtn, 'click', openForm)
+	}
 
-	addEventOnElements(signupBtn, 'click', openForm)
 	overlay.addEventListener('click', closeForm)
 
 })

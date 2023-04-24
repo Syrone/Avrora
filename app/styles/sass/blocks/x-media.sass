@@ -220,6 +220,45 @@
 					width: rem(372)
 					height: rem(460)
 
+	.rules
+		padding-block: rem(250) rem(500)
+		line-height: rem(60)
+		&-title
+			margin-bottom: rem(40)
+		&-header
+			.container
+				@include adaptive-value('padding-inline', 500, 30, 2)
+				margin-bottom: rem(50)
+			&-list
+				line-height: rem(76)
+				border-radius: rem(80)
+				padding: rem(72) rem(280)
+				ol
+					li + li
+						margin-top: rem(10)
+			&-title
+				margin-bottom: rem(20)
+		&-text
+			.container
+				@include adaptive-value('padding-inline', 250, 30, 2)
+			&-list
+				border-radius: rem(40)
+				padding: rem(120) rem(180)
+			&-title
+				margin-bottom: rem(80)
+				& > ol > li
+					margin-bottom: rem(20)
+			&-item.disc
+				padding-left: rem(70)
+				&::before
+					font-size: rem(80)
+					left: rem(26)
+					top: rem(10)
+
+	*[id]::before
+		margin-top: rem(-340)
+		height: rem(340)
+
 	.footer
 		font-size: rem(40)
 		padding-block: rem(60)
@@ -411,6 +450,45 @@
 				&.hero
 					width: rem(558)
 					height: rem(690)
+
+	.rules
+		padding-block: rem(400) rem(750)
+		line-height: rem(90)
+		&-title
+			margin-bottom: rem(60)
+		&-header
+			.container
+				@include adaptive-value('padding-inline', 600, 30, 2)
+				margin-bottom: rem(75)
+			&-list
+				line-height: rem(114)
+				border-radius: rem(120)
+				padding: rem(108) rem(420)
+				ol
+					li + li
+						margin-top: rem(15)
+			&-title
+				margin-bottom: rem(30)
+		&-text
+			.container
+				@include adaptive-value('padding-inline', 350, 30, 2)
+			&-list
+				border-radius: rem(60)
+				padding: rem(180) rem(270)
+			&-title
+				margin-bottom: rem(120)
+				& > ol > li
+					margin-bottom: rem(30)
+			&-item.disc
+				padding-left: rem(105)
+				&::before
+					font-size: rem(120)
+					left: rem(39)
+					top: rem(15)
+
+	*[id]::before
+		margin-top: rem(-510)
+		height: rem(510)
 
 	.footer
 		font-size: rem(60)

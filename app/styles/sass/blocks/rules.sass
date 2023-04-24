@@ -1,0 +1,74 @@
+.rules
+	padding-block: rem(150) rem(250)
+	line-height: rem(30)
+	&-title
+		text-align: center
+		margin-bottom: rem(20)
+	&-header
+		.container
+			@include adaptive-value('padding-inline', 150, 15, 1)
+			margin-bottom: rem(25)
+		&-list
+			font-family: $secondfont
+			font-style: italic
+			line-height: rem(38)
+			border-radius: rem(40)
+			padding: rem(36) rem(140)
+			background: var(--body-rules)
+			ol
+				li + li
+					margin-top: rem(5)
+		&-item
+			list-style: decimal
+		&-title
+			list-style: disc
+			margin-bottom: rem(10)
+	&-text
+		font-family: $secondfont
+		.container
+			@include adaptive-value('padding-inline', 50, 15, 1)
+		&-list
+			border-radius: rem(20)
+			padding: rem(60) rem(90)
+			background: var(--body-rules-light)
+			ol
+				counter-reset: item
+			li
+				display: block
+				&::before
+					content: counters(item, ".") ". "
+					counter-increment: item
+		&-title
+			font-style: italic
+			font-weight: 700
+			list-style: decimal
+			margin-bottom: rem(40)
+			& > ol > li
+				margin-bottom: rem(10)
+		&-item
+			font-style: normal
+			font-weight: 300
+			&.no-list-style
+				list-style: none
+				&::before
+					display: none
+			&.disc
+				padding-left: rem(35)
+				position: relative
+				&::before
+					all: unset
+					content: '.'
+					font-size: rem(40)
+					position: absolute
+					left: rem(13)
+					top: rem(5)
+					transform: translateY(-50%)
+
+*[id]::before
+	display: block
+	content: " "
+	margin-top: rem(-170)
+	height: rem(170)
+	visibility: hidden
+	position: relative
+	z-index: -1
