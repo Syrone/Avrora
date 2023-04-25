@@ -7,6 +7,8 @@
 		grid-column: span 2
 		color: var(--text-color)
 		transition: var(--trt-theme)
+		&-text
+			font-family: $secondfont
 		&:hover
 			transform: translate(rem(-2), rem(-20))
 			box-shadow: var(--box-shadow-3)
@@ -74,7 +76,7 @@
 			order: -1
 			background: transparent
 			&:hover, &:focus
-				transform: unset
+				transform: none
 				box-shadow: unset
 				background: transparent
 				color: var(--text-color)

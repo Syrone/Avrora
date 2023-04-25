@@ -192,7 +192,7 @@
 	.connect, .download
 		.container
 			max-width: rem(2400)
-			padding-block: rem(190) rem(160)
+			padding-block: rem(250) rem(160)
 			@include adaptive-value('padding-inline', 100, 50, 2)
 			gap: 50px
 
@@ -261,6 +261,36 @@
 	*[id]::before
 		margin-top: rem(-340)
 		height: rem(340)
+
+	.download
+		&-item-text
+			font-size: rem(48)
+		&:hover
+			transform: translate(rem(-4), rem(-40))
+		&-button
+			gap: rem(100)
+		&-info
+			&-title
+				font-size: rem(64)
+				margin-bottom: rem(100)
+			& > div
+				gap: 100px
+				padding-inline: rem(300)
+			&-text
+				font-size: rem(64)
+				margin-bottom: rem(80)
+			&-link
+				border-radius: rem(104)
+				padding: rem(68) rem(180)
+		.windows
+			width: rem(352)
+			height: rem(330)
+		.ios
+			width: rem(236)
+			height: rem(290)
+		.linux
+			width: rem(212)
+			height: rem(248)
 
 	.footer
 		font-size: rem(40)
@@ -495,6 +525,36 @@
 	*[id]::before
 		margin-top: rem(-510)
 		height: rem(510)
+
+	.download
+		&-item-text
+			font-size: rem(72)
+		&:hover
+			transform: translate(rem(-6), rem(-60))
+		&-button
+			gap: rem(150)
+		&-info
+			&-title
+				font-size: rem(96)
+				margin-bottom: rem(150)
+			& > div
+				gap: 150px
+				padding-inline: rem(450)
+			&-text
+				font-size: rem(96)
+				margin-bottom: rem(120)
+			&-link
+				border-radius: rem(156)
+				padding: rem(102) rem(270)
+		.windows
+			width: rem(528)
+			height: rem(495)
+		.ios
+			width: rem(354)
+			height: rem(435)
+		.linux
+			width: rem(318)
+			height: rem(372)
 
 	.footer
 		font-size: rem(60)
