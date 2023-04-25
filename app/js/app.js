@@ -130,4 +130,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	overlay.addEventListener('click', closeForm)
 
+	const downloadWindows = document.querySelector('[data-download-windows]'),
+			downloadIos = document.querySelector('[data-download-ios]'),
+			downloadLinux = document.querySelector('[data-download-linux]')
+
+	downloadWindows.addEventListener('click', () => {
+		downloadIos.classList.remove('active')
+		downloadLinux.classList.remove('active')
+		downloadWindows.classList.add('active')
+		downloadWindows.style.gridColumn = "1/-1"
+	})
+
+	downloadIos.addEventListener('click', () => {
+		downloadWindows.classList.remove('active')
+		downloadLinux.classList.remove('active')
+		downloadIos.classList.add('active')
+		downloadWindows.style.gridColumn = "span 2"
+	})
+
+	downloadLinux.addEventListener('click', () => {
+		downloadWindows.classList.remove('active')
+		downloadIos.classList.remove('active')
+		downloadLinux.classList.add('active')
+		downloadWindows.style.gridColumn = "span 2"
+	})
 })

@@ -76,6 +76,7 @@
 			&:hover, &:focus
 				transform: unset
 				box-shadow: unset
+				background: transparent
 				color: var(--text-color)
 				.windows
 					svg
@@ -85,24 +86,28 @@
 						fill: var(--text-color)
 				.linux
 					svg
-						path:nth-of-type(1)
-							fill: #FFBD00
-						path:nth-of-type(2)
-							fill: #FFBD00
-						path:nth-of-type(3)
-							fill: #FFBD00
-						path:nth-of-type(4)
-							fill: #fff
-						path:nth-of-type(5)
-							fill: #fff
-						path:nth-of-type(6)
-							fill: #fff
-						path:nth-of-type(7)
-							fill: #000
-						path:nth-of-type(8)
-							fill: #fff
-						path:nth-of-type(9)
-							fill: #fff
+						path
+							fill: inherit
+			.linux
+				svg
+					path:nth-of-type(1)
+						fill: #FFBD00
+					path:nth-of-type(2)
+						fill: #FFBD00
+					path:nth-of-type(3)
+						fill: #FFBD00
+					path:nth-of-type(4)
+						fill: #fff
+					path:nth-of-type(5)
+						fill: #fff
+					path:nth-of-type(6)
+						fill: #fff
+					path:nth-of-type(7)
+						fill: #000
+					path:nth-of-type(8)
+						fill: #fff
+					path:nth-of-type(9)
+						fill: #fff
 			.download-button
 				display: none
 			.download-info
