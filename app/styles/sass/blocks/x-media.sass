@@ -192,11 +192,13 @@
 	.connect, .download
 		.container
 			max-width: rem(2400)
-			padding-block: rem(250) rem(160)
+			padding-top: rem(240)
 			@include adaptive-value('padding-inline', 100, 50, 2)
 			gap: 50px
 
 	.connect
+		&-title
+			font-size: rem(64)
 		&-item
 			max-width: rem(1160)
 			padding-block: rem(50)
@@ -263,6 +265,8 @@
 		height: rem(340)
 
 	.download
+		.container
+			padding-bottom: rem(100)
 		&-item-text
 			font-size: rem(48)
 		&:hover
@@ -461,6 +465,8 @@
 			gap: rem(75)
 
 	.connect
+		&-title
+			font-size: rem(96)
 		&-item
 			max-width: rem(1740)
 			padding-block: rem(75)
@@ -527,6 +533,8 @@
 		height: rem(510)
 
 	.download
+		.container
+			padding-bottom: rem(160)
 		&-item-text
 			font-size: rem(72)
 		&:hover

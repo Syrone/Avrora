@@ -83,6 +83,9 @@ $gutter: $grid-gutter-width
 	--body-rules-light: #00A3FF47
 	--body-form: #7AFFA7
 	--body-linux-focus: #05AEDA
+	--body-search: #93C3FA
+	--body-search-darken: #2787F5
+	--body-search-action: #174f90
 	--text-color: #000
 	--text-color-focus: #fff
 	--gradient-color: linear-gradient(324deg, #2A89F5 2%, #80B9F8 106%)
@@ -115,10 +118,11 @@ input, textarea
 	line-height: rem(28)
 	font-size: rem(24)
 	padding: rem(18) rem(64)
-	border-radius: rem(44)
+	border-radius: rem(45)
 	background: #fff
 	outline: none
 	border: none
+	transition: var(--trt-theme)
 	&::placeholder
 		font-family: $secondfont
 		font-size: rem(24)
