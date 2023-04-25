@@ -158,7 +158,12 @@ body.nav-active
 		height: 100%
 		fill: var(--text-color)
 		object-fit: cover
-		transition: var(--trt-theme)
+		path
+			fill: transparent
+			transition: var(--trt-theme)
+			&:nth-of-type(7)
+				fill: var(--text-color)
+				
 
 .img-cover
 	max-width: 100%
@@ -188,6 +193,18 @@ body.nav-active
 	min-height: rem(350)
 	border-radius: rem(20)
 	background-color: var(--body-connect-light)
+
+.wrapper-items
+	display: grid
+	grid-template-columns: repeat(2, 1fr)
+	justify-items: center
+	width: 100%
+	gap: 35px
+
+.connect, .download
+	.container
+		max-width: rem(1230)
+		padding-block: rem(150) rem(80)
 
 .wrapper-form
 	display: none
