@@ -31,13 +31,6 @@
 			border-radius: rem(20)
 			padding: rem(60) rem(90)
 			background: var(--body-rules-light)
-			ol
-				counter-reset: item
-			li
-				display: block
-				&::before
-					content: counters(item, ".") ". "
-					counter-increment: item
 		&-title
 			font-style: italic
 			font-weight: 700
@@ -48,10 +41,6 @@
 		&-item
 			font-style: normal
 			font-weight: 300
-			&.no-list-style
-				list-style: none
-				&::before
-					display: none
 			&.disc
 				padding-left: rem(35)
 				position: relative

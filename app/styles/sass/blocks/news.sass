@@ -1,0 +1,51 @@
+.news
+	padding-block: rem(200) rem(100)
+	.container
+		@include adaptive-value('padding-inline', 120, 15, 1)
+	&-title
+		font-size: rem(32)
+		text-align: center
+		margin-bottom: rem(60)
+	&-inner
+		padding: rem(45) rem(240)
+		background: var(--body-news)
+		margin-bottom: rem(40)
+	&-top
+		display: flex
+		gap: 120px
+		transform: translateX(rem(-200))
+		&-title
+			font-size: rem(34)
+			padding-top: rem(30)
+			white-space: nowrap
+			span
+				text-transform: uppercase
+		&-img
+			position: relative
+			transform: translateY(rem(-100))
+			flex-shrink: 0
+			&::before
+				content: ''
+				width: 100%
+				height: 100%
+				background: radial-gradient(circle, var(--color-gradient) 0%, transparent 65%)
+				position: absolute
+				left: rem(-60)
+				bottom: rem(-30)
+				opacity: .5
+				z-index: -1
+	&-bot
+		margin-top: rem(-50)
+		font-weight: 300
+	&-call
+		display: flex
+		justify-content: center
+		align-items: center
+		gap: 30px
+		&-text
+			font-size: rem(32)
+		&-btn
+			font-size: rem(20)
+			padding: rem(20) rem(60)
+			min-width: unset
+			border-radius: rem(20)

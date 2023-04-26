@@ -1,0 +1,18 @@
+.commands
+	padding-block: rem(170) rem(120)
+	.container
+		@include adaptive-value('padding-inline', 100, 15, 1)
+	&-inner
+		padding: rem(75) rem(100) rem(50)
+		&-text
+			margin-bottom: rem(40)
+		&-list
+			font-size: rem(20)
+			list-style: disc
+			padding-left: rem(20)
+			li + li
+				padding-top: rem(5)
+	&-title
+		font-size: rem(32)
+		margin-bottom: rem(40)
+		text-align: center

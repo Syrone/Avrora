@@ -95,99 +95,79 @@
 </header>
 
 <main>
-	<section class="connect">
+	<section class="commands">
 		<div class="container">
-			<h1 class="connect-title">Как подключиться?</h1>
-			<div class="connect-wrapper wrapper-items">
-				<button type="button" class="connect-item item" data-btn-signup>
-					<span class="connect-item-counter">01</span>
-					<div class="connect-item-content">
-						<h2 class="connect-item-title">Зарегистрируйтесь</h2>
-						<img src="./images/dist/connect/paper.png" width="168" height="134" loading="lazy" alt="Paper"
-							class="connect-item-img paper">
-					</div>
-				</button>
-				<a href="./rules.html" class="connect-item item">
-					<span class="connect-item-counter">02</span>
-					<div class="connect-item-content">
-						<h2 class="connect-item-title">Ознакомьтесь с правилами</h2>
-						<img src="./images/dist/connect/book.png" width="160" height="140" loading="lazy" alt="Book"
-							class="connect-item-img book">
-					</div>
-				</a>
-				<a href="./download.html" class="connect-item item">
-					<span class="connect-item-counter">03</span>
-					<div class="connect-item-content">
-						<h2 class="connect-item-title">Скачайте<br> и запустите лаунчер </h2>
-						<img src="./images/dist/connect/sword.png" width="126" height="128" loading="lazy" alt="Sword"
-							class="connect-item-img sword">
-					</div>
-				</a>
-				<a href="./questions.html" class="connect-item item">
-					<span class="connect-item-counter">04</span>
-					<div class="connect-item-content">
-						<h2 class="connect-item-title">Приятной игры! Обращайтесь к нам, если возникли проблемы</h2>
-						<img src="./images/dist/connect/hero.png" width="186" height="230" loading="lazy" alt="Hero"
-							class="connect-item-img hero">
-					</div>
-				</a>
+			<div class="commands-inner body-inner">
+				<h1 class="commands-title">
+					Список всех команд
+				</h1>
+				<p class="commands-inner-text">
+					Команды для Майнкрафт помогут игроку осуществить грамотную и тонкую настройку игры. С их помощью можно переключить игровой режим, изменить погоду и время, настроить правила, заспавнить мобов и предметы. Но это лишь малая часть возможностей.
+				</p>
+				<ul class="commands-inner-list">
+					<li>/ban — забанит игрока по его никнейму.</li>
+					<li>/ban-ip — бан игрока по его айпи адресу.</li>
+					<li>/banlist — вызывает список забанененых людей.</li>
+					<li>/bossbar — изменяет некоторые настройки боссов.</li>
+					<li>/clear — отчищает инвентарь игрока.</li>
+					<li>/clone — дублирует блоки из определенной локации в другую.</li>
+					<li>/data — заменяет некоторые данные для определенных функций и предметов.</li>
+					<li>/datapack — помогает установить датапаки.</li>
+					<li>/debug — команда, которая помогает справиться с багами.</li>
+					<li>/defaultgamemode — установить игровой режим, который был в настройках мира.</li>
+					<li>/deop — при игре на сервере, у игрока забираются права администратора.</li>
+					<li>/difficulty — сменит сложность.</li>
+					<li>/execute — универсальная функция для командных блоков. Позволяет выполнять другие операции.</li>
+					<li>/fill — заполняет область блоками или жидкостями.</li>
+					<li>/function — запускает набор функций.</li>
+					<li>/forceload — определенный чанк в Майнкрафт всегда будет загружен.</li>
+					<li>/gamerule — добавление, изменение и удаление игровых правил.</li>
+					<li>/give — выдача блоков, предметов, инструментов, оружий и многого другого.</li>
+					<li>/kick — нужна, чтобы выгнать героя с сервера.</li>
+					<li>/kill — убийство мобов, сущностей и игрока.</li>
+					<li>/list — вызывает список активных игроков.</li>
+					<li>/me — поможет узнать исполнителя команды.</li>
+					<li>/op — активирует режим «администратора» на сервере.</li>
+					<li>/pardon — удалит никнейм из забаненных.</li>
+					<li>/particle — создание некоторых частиц.</li>
+					<li>/playsound — запускает определенные звуки.</li>
+					<li>/publish — открытые порты для локальной игры.</li>
+					<li>/recipe — добавит или удалит необходимый рецепт.</li>
+					<li>/reload — быстрая перезагрузка функциональных возможностей, датапаков и прочего.</li>
+					<li>/replaceitem — заменяет блоки и предметы.</li>
+					<li>/save-all — быстрое сохранение.</li>
+					<li>/save-off — отключает автоматическое сохранение.</li>
+					<li>/save-on — включает автоматическое сохранение.</li>
+					<li>/say — быстрая отправка сообщение для всех.</li>
+					<li>/schedule — поможет выполнить функцию, но только спустя некоторое время.</li>
+					<li>/scoreboard — отображение списка игроков с их показателями.</li>
+					<li>/seed — поможет узнать сид заданного мира.</li>
+					<li>/setblock — установит определенный блок.</li>
+					<li>/setidletimeout — кикает АФК-игроков.</li>
+					<li>/setworldspawn — установит точку начала мира.</li>
+					<li>/spawnpoint — изменяет точку спавна. Аналогичную функцию выполняет кровать.</li>
+					<li>/spreadplayers — переместит сущность в случайную локацию.</li>
+					<li>/stop — остановка работы сервера.</li>
+					<li>/stopsound — остановка играющих звуков.</li>
+					<li>/tag — изменяет набор текста, который отображается при наведении на предмет.</li>
+					<li>/team — создает команды.</li>
+					<li>/teleport — быстрый телепорт в нужное место.</li>
+					<li>/tell — создаст личный чат.</li>
+					<li>/tellraw — сообщение для чата в уникальном формате с кодировкой.</li>
+					<li>/testfor — подсчет мобов с определенными характеристиками.</li>
+					<li>/testforblock — поиск блока по его локации.</li>
+					<li>/testforblocks — поиск блоков по заданным параметрам.</li>
+					<li>/time — изменяет время в мире.</li>
+					<li>/title — отключает титры.</li>
+					<li>/toggledownfall — вторая команда для изменения погоды.</li>
+					<li>/trigger — создание триггеров.</li>
+					<li>/weather — изменение погоды в мире.</li>
+					<li>/whitelist — добавление игроков в белый список.</li>
+					<li>/worldborder — границы игрового мира.</li>
+				</ul>
 			</div>
 		</div>
 	</section>
-
-	<div class="wrapper-form" data-form-signup>
-		<form action="#" class="form">
-			<h3 class="form-title">
-				<button class="active" type="button">Вход</button>
-				<button type="button" data-login-link>Регистрация</button>
-			</h3>
-			<input type="text" autocomplete="username" name="login" placeholder="Никнейм"
-				class="signup-form-field" required>
-			<input type="email" autocomplete="username" name="Email" placeholder="Email" class="signup-form-field"
-			required>
-			<input type="password" autocomplete="new-password" name="pass1" placeholder="Пароль"
-				class="signup-form-field" required>
-			<input type="password" autocomplete="new-password" name="pass2" placeholder="Повторите пароль"
-				class="signup-form-field" required>
-			<label class="checkbox">
-				<input class="checkbox-input" name="Privacy Policy" type="checkbox" required>
-				<div class="checkbox-box"></div>
-				Я согласен (-на) с политикой конфиденциальности
-			</label>
-			<div class="signup-form-links">
-				<a href="#">Правила</a>
-				<a href="#">Пользовательское соглашение</a>
-				<a href="#">Политика конфиденциальности</a>
-			</div>
-			<button class="btn btn-sign" type="submit">Зарегестрироваться</button>
-		</form>
-	</div>
-
-	<div class="wrapper-form" data-form-login>
-		<form action="#" class="form">
-			<h3 class="form-title">
-				<button type="button" data-signup-link>Вход</button>
-				<button class="active" type="button">Регистрация</button>
-			</h3>
-			<input type="text" autocomplete="username" name="login" placeholder="E-mail"
-				class="login-form-field" required>
-			<input type="password" autocomplete="new-password" name="pass1" placeholder="Пароль"
-				class="login-form-field" required>
-			<button class="btn-transparent link" type="button" data-forgot-link>Забыли пароль?</button>
-			<button class="btn btn-sign" type="submit">Войти</button>
-		</form>
-	</div>
-
-	<div class="wrapper-form" data-form-forgot>
-		<form action="#" class="form">
-			<h3 class="form-title">
-				Сброс пароля
-			</h3>
-			<input type="text" autocomplete="username" name="login" placeholder="E-mail"
-				class="login-form-field" required>
-			<button class="btn btn-sign" type="submit" data-forgot-link>Продолжить</button>
-		</form>
-	</div>
 </main>
 
 	<footer class="footer">

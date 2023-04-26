@@ -83,17 +83,20 @@
 		width: 30vw
 
 	.header
-		padding-block: 80px
+		padding-block: 60px 120px
+		&-bg
+			box-shadow: 0 350px 50px -100px var(--body-color) inset
 
-	.nav-item:is(:hover, :focus-within)
-		.sub-nav-list
-			padding: rem(60) rem(80)
+	.nav-item
+		padding-block: rem(30)
+		&:is(:hover, :focus-within)
+			.sub-nav-list
+				padding: rem(60) rem(80)
 
 	.sub-nav
 		&-list
 			gap: 40px
 			border-radius: rem(16)
-			top: rem(100)
 			.arrow-dropdown
 				width: rem(52)
 				height: rem(28)
@@ -138,6 +141,15 @@
 			height: rem(80)
 			border-radius: rem(10)
 			border-width: 2px
+
+	.body-inner
+		border-radius: rem(30)
+
+	.body-text-item.list-string
+		padding-left: rem(40)
+		&::after
+			font-size: rem(40)
+			top: rem(16)
 
 	.hero
 		&-swiper
@@ -296,6 +308,166 @@
 			width: rem(212)
 			height: rem(248)
 
+	.questions
+		padding-block: rem(400) rem(100)
+		.container
+			@include adaptive-value('padding-inline', 400, 30, 2)
+		&-title
+			margin-bottom: rem(90)
+		&-search
+			max-width: 1990px
+			margin-bottom: rem(80)
+			input
+				font-size: rem(64)
+				padding: rem(56) rem(290)
+				&::placeholder
+					font-size: rem(64)
+			button
+				padding: rem(50) rem(80)
+				border-radius: 0 rem(90) rem(90) 0 
+				.search
+					width: rem(86)
+					height: rem(86)
+		&-list
+			border: 4px solid var(--text-color)
+			border-radius: rem(40)
+			margin-bottom: rem(300)
+			&-title
+				font-size: rem(48)
+				margin-bottom: rem(80)
+				padding-left: rem(290)
+		&-item
+			& + .questions-item
+				border-top: 4px solid var(--text-color)
+			&-control
+				padding: rem(60) rem(70) rem(60) rem(290)
+			&-icon
+				width: rem(66)
+				height: rem(66)
+			&-content
+				max-width: 1700px
+				padding: rem(0) rem(70) rem(0) rem(290)
+			&.active
+				.questions-item-content
+					padding: rem(0) rem(70) rem(60) rem(290)
+					margin-top: rem(-20)
+		&-chat
+			.container
+				@include adaptive-value('padding-inline', 200, 30, 2)
+			&-title
+				font-size: rem(96)
+				max-width: 1400px
+				margin-bottom: rem(150)
+			&-btns
+				gap: 70px
+			&-btn
+				font-size: rem(48)
+				border-radius: rem(50)
+				padding: rem(50) rem(140)
+
+	.commands
+		padding-block: rem(255) rem(180)
+		.container
+			@include adaptive-value('padding-inline', 200, 15, 1)
+		&-inner
+			padding: rem(112) rem(150) rem(75)
+			&-text
+				margin-bottom: rem(60)
+			&-list
+				font-size: rem(40)
+				padding-left: rem(30)
+				li + li
+					padding-top: rem(8)
+		&-title
+			font-size: rem(48)
+			margin-bottom: rem(60)
+
+	.policy
+		padding-block: rem(240) rem(280)
+		.container
+			@include adaptive-value('padding-inline', 200, 15, 2)
+		&-title
+			font-size: rem(64)
+			margin-bottom: rem(30)
+		&-inner
+			padding: rem(150) rem(200) rem(100)
+		&-text
+			&-title + .policy-text-title
+				margin-top: rem(30)
+			&-list
+				font-size: rem(40)
+				line-height: rem(66)
+
+	.terms
+		padding-block: rem(240)
+		.container
+			@include adaptive-value('padding-inline', 200, 15, 2)
+		&-title
+			font-size: rem(64)
+			text-align: center
+			margin-bottom: rem(30)
+		&-inner
+			padding: rem(100) rem(205) rem(100)
+		&-text
+			&-title
+				margin-bottom: rem(50)
+				& + .policy-text-title
+					margin-top: rem(60)
+			&-list
+				font-size: rem(40)
+				line-height: rem(66)
+			&-inner
+				margin-bottom: rem(60)
+
+	.author
+		padding-block: rem(300) rem(150)
+		.container
+			@include adaptive-value('padding-inline', 150, 15, 1)
+		&-inner
+			padding: rem(190) rem(50) rem(90) rem(280)
+		&-text
+			max-width: 1420px
+			font-size: rem(64)
+			line-height: rem(90)
+			margin-top: rem(-200)
+		&-img
+			width: rem(540)
+			height: rem(1026)
+
+	.news
+		padding-block: rem(280) rem(100)
+		.container
+			@include adaptive-value('padding-inline', 240, 15, 1)
+		&-title
+			font-size: rem(64)
+			margin-bottom: rem(120)
+		&-inner
+			padding: rem(90) rem(400)
+		&-top
+			gap: 80px
+			transform: translateX(rem(-300))
+			&-title
+				font-size: rem(68)
+				padding-top: rem(120)
+			&-img
+				transform: translateY(rem(-200))
+				&::before
+					left: rem(-120)
+					bottom: rem(-60)
+				img
+					width: rem(762)
+		&-bot
+			margin-top: rem(-100)
+		&-call
+			gap: 60px
+			&-text
+				font-size: rem(64)
+			&-btn
+				min-width: max-content
+				font-size: rem(40)
+				padding: rem(40) rem(100)
+				border-radius: rem(40)
+
 	.footer
 		font-size: rem(40)
 		padding-block: rem(60)
@@ -413,18 +585,30 @@
 			border-radius: rem(15)
 			border-width: 3px
 
-	.header
-		padding-block: 120px
+	.body-inner
+		border-radius: rem(30)
+	
+	.body-text-item.list-string
+			padding-left: rem(60)
+			&::after
+				font-size: rem(60)
+				top: rem(24)
 
-	.nav-item:is(:hover, :focus-within)
-		.sub-nav-list
-			padding: rem(90) rem(120)
+	.header
+		padding-block: 100px 160px
+		&-bg
+			box-shadow: 0 450px 50px -100px var(--body-color) inset
+
+	.nav-item
+		padding-block: rem(50)
+		&:is(:hover, :focus-within)
+			.sub-nav-list
+				padding: rem(90) rem(120)
 
 	.sub-nav
 		&-list
 			gap: 60px
 			border-radius: rem(24)
-			top: rem(150)
 			.arrow-dropdown
 				width: rem(78)
 				height: rem(42)
@@ -563,6 +747,162 @@
 		.linux
 			width: rem(318)
 			height: rem(372)
+
+	.questions
+		padding-block: rem(600) rem(150)
+		.container
+			@include adaptive-value('padding-inline', 600, 30, 2)
+		&-title
+			margin-bottom: rem(135)
+		&-search
+			max-width: 2400px
+			margin-bottom: rem(120)
+			input
+				font-size: rem(96)
+				padding: rem(84) rem(455) rem(84) rem(255)
+				&::placeholder
+					font-size: rem(96)
+			button
+				padding: rem(75) rem(160)
+				border-radius: 0 rem(180) rem(180) 0 
+				.search
+					width: rem(129)
+					height: rem(129)
+		&-list
+			border: 6px solid var(--text-color)
+			border-radius: rem(60)
+			margin-bottom: rem(450)
+			&-title
+				font-size: rem(72)
+				margin-bottom: rem(120)
+				padding-left: rem(435)
+		&-item
+			& + .questions-item
+				border-top: 6px solid var(--text-color)
+			&-control
+				padding: rem(90) rem(105) rem(90) rem(435)
+			&-icon
+				width: rem(99)
+				height: rem(99)
+			&-content
+				max-width: 2550px
+				padding: rem(0) rem(105) rem(0) rem(435)
+			&.active
+				.questions-item-content
+					padding: rem(0) rem(105) rem(90) rem(435)
+					margin-top: rem(-30)
+		&-chat
+			.container
+				@include adaptive-value('padding-inline', 200, 30, 2)
+			&-title
+				font-size: rem(144)
+				max-width: 2100px
+				margin-bottom: rem(225)
+			&-btn
+				font-size: rem(72)
+				border-radius: rem(75)
+				padding: rem(75) rem(220)
+
+	.commands
+		padding-block: rem(340) rem(240)
+		.container
+			@include adaptive-value('padding-inline', 300, 15, 2)
+		&-inner
+			padding: rem(150) rem(200) rem(100)
+			&-text
+				margin-bottom: rem(80)
+			&-list
+				font-size: rem(50)
+				padding-left: rem(40)
+				li + li
+					padding-top: rem(10)
+		&-title
+			font-size: rem(64)
+			margin-bottom: rem(80)
+
+	.policy
+		padding-block: rem(360) rem(280)
+		.container
+			@include adaptive-value('padding-inline', 250, 15, 2)
+		&-title
+			font-size: rem(96)
+			margin-bottom: rem(45)
+		&-inner
+			padding: rem(225) rem(310) rem(150)
+		&-text
+			&-title + .policy-text-title
+				margin-top: rem(60)
+			&-list
+				font-family: $secondfont
+				font-size: rem(60)
+				line-height: rem(99)
+
+	.terms
+		padding-block: rem(360)
+		.container
+			@include adaptive-value('padding-inline', 300, 15, 2)
+		&-title
+			font-size: rem(96)
+			margin-bottom: rem(45)
+		&-inner
+			padding: rem(150) rem(310) rem(150)
+		&-text
+			&-title 
+				margin-bottom: rem(75)
+				& + .policy-text-title
+					margin-top: rem(90)
+			&-list
+				font-size: rem(60)
+				line-height: rem(99)
+			&-inner
+				margin-bottom: rem(90)
+
+	.author
+		padding-block: rem(450)
+		.container
+			@include adaptive-value('padding-inline', 300, 15, 1)
+		&-text
+			max-width: 2350px
+			font-size: rem(96)
+			line-height: rem(135)
+			margin-top: rem(-300)
+		&-img
+			width: rem(810)
+			height: rem(1539)
+
+	.news
+		padding-block: rem(400) rem(100)
+		.container
+			@include adaptive-value('padding-inline', 450, 15, 1)
+		&-title
+			font-size: rem(96)
+			margin-bottom: rem(180)
+		&-inner
+			padding: rem(135) rem(350)
+			margin-bottom: rem(80)
+		&-top
+			gap: 120px
+			transform: translateX(rem(-300))
+			&-title
+				font-size: rem(102)
+				padding-top: rem(90)
+			&-img
+				transform: translateY(rem(-250))
+				&::before
+					left: rem(-120)
+				img
+					width: 25vw
+		&-bot
+			margin-top: rem(-150)
+		&-call
+			gap: 90px
+			&-text
+				font-size: rem(80)
+			&-btn
+				min-width: max-content
+				font-size: rem(50)
+				padding: rem(60) rem(120)
+				border-radius: rem(60)
 
 	.footer
 		font-size: rem(60)

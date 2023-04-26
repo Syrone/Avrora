@@ -1,0 +1,18 @@
+.policy
+	padding-block: rem(120) rem(280)
+	.container
+		@include adaptive-value('padding-inline', 50, 15, 1)
+	&-title
+		font-size: rem(32)
+		text-align: center
+		margin-bottom: rem(15)
+	&-inner
+		padding: rem(75) rem(155) rem(50)
+	&-text
+		&-title + .policy-text-title
+			margin-top: rem(30)
+		&-list
+			font-family: $secondfont
+			font-size: rem(20)
+			line-height: rem(33)
+			font-weight: 300

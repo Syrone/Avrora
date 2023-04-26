@@ -40,7 +40,7 @@
 						fill: #fff
 					path:nth-of-type(9)
 						fill: #fff
-		&:focus
+		&:active
 			background: var(--text-color)
 			color: var(--text-color-focus)
 			.windows
@@ -73,75 +73,12 @@
 			grid-column: 2/4
 		&:last-child:focus
 			background: var(--body-linux-focus)
-		&.active
-			grid-column: 1/-1
-			order: -1
-			background: transparent
-			&:hover, &:focus
-				transform: none
-				box-shadow: unset
-				background: transparent
-				color: var(--text-color)
-				.windows
-					svg
-						fill: var(--text-color)
-				.ios
-					svg
-						fill: var(--text-color)
-				.linux
-					svg
-						path
-							fill: inherit
-			.linux
-				svg
-					path:nth-of-type(1)
-						fill: #FFBD00
-					path:nth-of-type(2)
-						fill: #FFBD00
-					path:nth-of-type(3)
-						fill: #FFBD00
-					path:nth-of-type(4)
-						fill: #fff
-					path:nth-of-type(5)
-						fill: #fff
-					path:nth-of-type(6)
-						fill: #fff
-					path:nth-of-type(7)
-						fill: #000
-					path:nth-of-type(8)
-						fill: #fff
-					path:nth-of-type(9)
-						fill: #fff
-			.download-button
-				display: none
-			.download-info
-				display: block
 	&-button
 		display: flex
 		flex-direction: column
 		align-items: center
 		justify-content: center
 		gap: rem(50)
-	&-info
-		display: none
-		width: 100%
-		&-title
-			font-size: rem(32)
-			margin-bottom: rem(50)
-		& > div
-			display: flex
-			align-items: center
-			justify-content: flex-start
-			gap: 50px
-			font-family: $secondfont
-			padding-inline: rem(150)
-		&-text
-			font-size: rem(32)
-			margin-bottom: rem(40)
-		&-link
-			border-radius: rem(52)
-			padding: rem(34) rem(90)
-			min-width: unset
 	.windows
 		width: rem(176)
 		height: rem(165)

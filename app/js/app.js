@@ -63,10 +63,10 @@ document.addEventListener('DOMContentLoaded', () => {
 		localStorage.setItem('selected-icon', getCurrentIcon())
 	})
 
-	if(randomBg) {
+	if (randomBg) {
 		const getCurrentBg = () => document.body.classList.contains(darkTheme) ?
-		randomBg.style.backgroundImage = `url(${imagesDark[numberDark]})` :
-		randomBg.style.backgroundImage = `url(${imagesLight[numberLight]})`
+			randomBg.style.backgroundImage = `url(${imagesDark[numberDark]})` :
+			randomBg.style.backgroundImage = `url(${imagesLight[numberLight]})`
 
 		window.onload = () => { getCurrentBg() }
 
@@ -102,66 +102,33 @@ document.addEventListener('DOMContentLoaded', () => {
 		forgotForm.classList.remove('active')
 		document.body.classList.remove('nav-active')
 	}
-	
-	if(loginLink) {
+
+	if (loginLink) {
 		loginLink.addEventListener('click', () => {
 			signupForm.classList.remove('active')
 			loginForm.classList.add('active')
 		})
 	}
 
-	if(signLink) {
+	if (signLink) {
 		signLink.addEventListener('click', () => {
 			loginForm.classList.remove('active')
 			signupForm.classList.add('active')
 		})
 	}
 
-	if(forgotLink) {
+	if (forgotLink) {
 		forgotLink.addEventListener('click', () => {
 			loginForm.classList.remove('active')
 			forgotForm.classList.add('active')
 		})
 	}
 
-	if(signupBtn) {
+	if (signupBtn) {
 		addEventOnElements(signupBtn, 'click', openForm)
 	}
 
 	overlay.addEventListener('click', closeForm)
-
-
-	// OPEN AND CLOSE ITEMS IN DOWNLOAD.HTML
-	const downloadWindows = document.querySelector('[data-download-windows]'),
-			downloadIos = document.querySelector('[data-download-ios]'),
-			downloadLinux = document.querySelector('[data-download-linux]')
-
-	if(downloadWindows) {
-		downloadWindows.addEventListener('click', () => {
-			downloadIos.classList.remove('active')
-			downloadLinux.classList.remove('active')
-			downloadWindows.classList.add('active')
-			downloadWindows.style.gridColumn = "1/-1"
-		})
-	}
-
-	if(downloadIos) {
-		downloadIos.addEventListener('click', () => {
-			downloadWindows.classList.remove('active')
-			downloadLinux.classList.remove('active')
-			downloadIos.classList.add('active')
-			downloadWindows.style.gridColumn = "span 2"
-		})
-	}
-
-	if(downloadLinux) {
-		downloadLinux.addEventListener('click', () => {
-			downloadWindows.classList.remove('active')
-			downloadIos.classList.remove('active')
-			downloadLinux.classList.add('active')
-			downloadWindows.style.gridColumn = "span 2"
-		})
-	}
 
 	// OPEN AND CLOSE ACCORDION IN QUESTIONS.HTML
 	const accordions = document.querySelectorAll('[data-accordion]')
@@ -169,16 +136,16 @@ document.addEventListener('DOMContentLoaded', () => {
 	accordions.forEach(el => {
 		el.addEventListener('click', (e) => {
 			const self = e.currentTarget,
-					content = self.querySelector('[data-accordion-content]')
+				content = self.querySelector('[data-accordion-content]')
 
 			self.classList.toggle('active')
 
-			if(self.classList.contains('active')) {
+			if (self.classList.contains('active')) {
 				content.style.maxHeight = content.scrollHeight + 'px'
 			} else {
 				content.style.maxHeight = null
 			}
 		})
 	})
-
+	
 })

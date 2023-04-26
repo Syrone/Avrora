@@ -1,5 +1,5 @@
 .header
-	padding-block: 40px 100px
+	padding-block: 20px
 	background-color: transparent
 	position: fixed
 	top: 0
@@ -12,8 +12,8 @@
 		align-items: center
 		justify-content: space-between
 	&-bg
-		box-shadow: 0 240px 50px -100px var(--body-color) inset
-		opacity: .95
+		box-shadow: 0 150px 20px -50px var(--body-color) inset
+		// opacity: .95
 		// box-shadow: 0 12px 30px rgb(var(--body-color) / 60%)
 .nav
 	&-list
@@ -30,7 +30,8 @@
 		color: var(--text-color)
 		transition: background var(--trt-theme), color var(--trt-theme)
 		cursor: pointer
-		&:is(:hover, :focus-within)
+		padding-block: rem(25)
+		&:is(:hover, :focus-within, :focus)
 			.nav-link
 				text-shadow: 1.5px 0 1.5px currentColor
 				transition: var(--trt)
@@ -39,7 +40,6 @@
 				visibility: visible
 				opacity: 1
 	&-link
-		padding-block: 25px
 		transition: var(--trt-theme)
 	&-buttons
 		display: flex
@@ -59,7 +59,7 @@
 		position: absolute
 		left: 50%
 		transform: translateX(-50%)
-		top: rem(50)
+		top: 100%
 		visibility: hidden
 		opacity: 0
 		transition: var(--trt)

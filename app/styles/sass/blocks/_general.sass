@@ -278,3 +278,39 @@ body.nav-active
 			color: #fff
 			transform: scale(0)
 			transition: var(--trt)
+
+.body-inner
+	background: var(--body-commands)
+	border-radius: rem(20)
+
+.body-text
+	&-list
+		ol
+			counter-reset: item
+		li
+			display: block
+			&::before
+				content: counters(item, ".") ". "
+				counter-increment: item
+		.reboot
+			counter-reset: none
+			counter-set: item 0
+		.terms-text-reboot
+			counter-set: item 4
+	&-item
+		&.no-list-style
+				list-style: none
+				&::before
+					display: none
+		&.list-string
+			position: relative
+			padding-left: rem(20)
+			&::after
+				font-size: rem(20)
+				font-weight: 100
+				content: '_'
+				position: absolute
+				left: 0
+				top: rem(8)
+				transform: translateY(-50%)
+
