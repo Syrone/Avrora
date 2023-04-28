@@ -98,18 +98,35 @@
 	<section class="donat cta-wrapper">
 		<div class="container">
 			<h1 class="donat-title">Покупка аурумов</h1>
-			<div class="balance">
-				<div class="balance-text">
-					Ваш баланс
-				</div>
-				<progress class="balance-progress" value="5" min="0" max="100"></progress>
-				<div class="balance-current">
-					<span class="balance-total">0</span>
-					<div class="balance-current balance-grade">Iron</div>
+
+			<div class="donat-inner">
+				<form action="#" class="donat-form">
+					<h2 class="donat-form-title">
+						При покупке сумма аурумов сумме рублей
+						без учёта комисии*
+					</h2>
+					<input type="text" autocomplete="username" name="login" placeholder="Никнейм"
+						class="donat-form-field" required>
+					<input type="number" class="donat-form-field input-aurum" name="aurum" placeholder="Сумма в аурумах" required>
+					<label class="checkbox">
+						<input class="checkbox-input" name="Privacy Policy" type="checkbox" required>
+						<div class="checkbox-box"></div>
+						Я согласен (-на) с политикой конфиденциальности и пользовательским соглашением
+					</label>
+					<button type="submit" class="btn donat-form-btn">Продолжить</button>
+				</form>
+	
+				<div class="balance">
+					<div class="balance-text">
+						Ваш баланс
+					</div>
+					<progress class="balance-progress" value="5" min="0" max="100"></progress>
+					<div class="balance-current">
+						<span class="balance-total">0</span>
+						<div class="balance-current balance-grade">Iron</div>
+					</div>
 				</div>
 			</div>
-
-			<input type="number" class="input-aurum" value="5" min="0">
 		</div>
 	</section>
 </main>

@@ -208,7 +208,8 @@
 			@include adaptive-value('padding-inline', 100, 50, 2)
 			gap: 50px
 
-	.moderator.cta-wrapper .container
+	.moderator.cta-wrapper .container,
+	.donat.cta-wrapper .container
 		max-width: unset
 
 	.connect
@@ -500,6 +501,41 @@
 			.moderator-item
 				padding-left: rem(16)
 
+	.donat
+		.container
+			max-width: 3000px
+			padding-block: rem(300) rem(120)
+		&-inner
+			gap: 60px
+		&-form
+			max-width: 1900px
+			gap: 80px
+			padding: rem(100) rem(160)
+			&-title
+				max-width: 1100px
+				padding-left: rem(20)
+			&-field
+				padding: rem(50) rem(120)
+			.checkbox
+				max-width: 1000px
+				gap: 40px
+				font-size: rem(32)
+			&-btn
+				padding: rem(60)
+				min-width: 900px
+		.balance
+			gap: 20px
+			max-width: 1160px
+			padding: 70px 70px 120px 70px
+			&-progress
+				height: 40px
+				&::before
+					height: 40px
+					width: 50px
+				&::after
+					height: 40px
+					width: 50px
+
 	.footer
 		font-size: rem(40)
 		padding-block: rem(60)
@@ -680,7 +716,8 @@
 			padding-block: rem(380) rem(240)
 			gap: rem(75)
 
-	.moderator.cta-wrapper .container
+	.moderator.cta-wrapper .container,
+	.donat.cta-wrapper .container
 		max-width: unset
 
 	.connect
@@ -969,6 +1006,41 @@
 		.body-text-list
 			.moderator-item
 				padding-left: rem(24)
+
+	.donat
+		.container
+			max-width: 3000px
+			padding-block: rem(500) rem(120)
+		&-inner
+			gap: 90px
+		&-form
+			max-width: 2200px
+			gap: 90px
+			padding: rem(100) rem(160)
+			&-title
+				max-width: 1400px
+				padding-left: rem(30)
+			&-field
+				padding: rem(50) rem(120)
+			.checkbox
+				max-width: 1500px
+				gap: 60px
+				font-size: rem(48)
+			&-btn
+				padding: rem(90)
+				min-width: 1200px
+		.balance
+			gap: 20px
+			max-width: 1160px
+			padding: 70px 70px 120px 70px
+			&-progress
+				height: 40px
+				&::before
+					height: 40px
+					width: 50px
+				&::after
+					height: 40px
+					width: 50px
 
 	.footer
 		font-size: rem(60)

@@ -1,33 +1,103 @@
 .donat
+	color: #000
+	.container
+		padding-block: rem(200) rem(80)
 	&-title
 		visibility: hidden
+		opacity: 0
+		position: absolute
+	&-inner
+		display: flex
+		align-items: center
+		justify-content: center
+		gap: 30px
+	&-form
+		display: flex
+		flex-direction: column
+		align-items: center
+		width: 100%
+		max-width: 850px
+		gap: 40px
+		background: var(--body-form)
+		border-radius: var(--border-radius)
+		padding: rem(50) rem(80)
+		&-title
+			max-width: 550px
+			align-self: start
+			font-size: inherit
+			font-weight: 700
+			padding-left: rem(10)
+		&-field
+			padding: rem(25) rem(60)
+			&::placeholder
+				color:#757575
+		.checkbox
+			max-width: 500px
+			gap: 20px
+			font-size: rem(16)
+			font-weight: 700
+			&-box
+				border-color: #000
+				&::after
+					color: #000
+		&-btn
+			padding: rem(30)
+			background: var(--color-btn)
+			border-radius: var(--border-radius-2)
+			color: #fff
+			min-width: 450px
+
+
 	.balance
+		display: flex
+		flex-direction: column
+		gap: 10px
+		width: 100%
 		max-width: 580px
+		border-radius: var(--border-radius)
 		padding: 35px 35px 60px 35px
-		background: #8fc1f9
+		background: var(--body-form)
 		&-progress
-			border-radius: 0
 			height: 20px
 			width: 100%
 			appearance: none
 			border: none
-			border-radius: 20px
+			border-radius: var(--border-radius)
 			overflow: hidden
 			transition: .3s ease-in-out
+			position: relative
 			&::-webkit-progress
 				&-bar
 					background: #7599FC
-					border-radius: 20px
+					border-radius: var(--border-radius)
 				&-value
 					background: #4777F9
-					border-radius: 20px
+					border-radius: var(--border-radius)
 			&::-moz-progress
 				&-bar
 					background: #7599FC
-					border-radius: 20px
+					border-radius: var(--border-radius)
 				&-value
 					background: #4777F9
-					border-radius: 20px
+					border-radius: var(--border-radius)
+			&::before
+				content: ''
+				height: 20px
+				width: 25px
+				background: #4777F9
+				border-radius: var(--border-radius)
+				position: absolute
+				left: 0
+				top: 0
+			&::after
+				content: ''
+				height: 20px
+				width: 25px
+				background: #4777F9
+				border-radius: var(--border-radius)
+				position: absolute
+				right: 0
+				top: 0
 		&-text
 			text-align: center
 		&-current
