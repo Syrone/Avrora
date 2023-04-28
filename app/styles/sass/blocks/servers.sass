@@ -1,0 +1,50 @@
+.servers
+	.container
+		display: flex
+		flex-direction: column
+		align-items: center
+		gap: 25px
+		padding-top: rem(100)
+	&-title
+		font-size: rem(32)
+		visibility: hidden
+		opacity: 0
+	&-item
+		&:nth-child(2)
+			background: url('../images/dist/background/server-2.jpg') center no-repeat
+			background-size: cover
+		&:nth-child(3)
+			background: url('../images/dist/background/server-3.jpg') center no-repeat
+			background-size: cover
+		&:nth-child(4)
+			background: url('../images/dist/background/server-4.jpg') center no-repeat
+			background-size: cover
+		display: flex
+		align-items: center
+		justify-content: flex-end
+		gap: 20px
+		max-width: rem(583)
+		background: url('../images/dist/background/server-1.jpg') center no-repeat
+		background-size: cover
+		border-radius: rem(22)
+		padding-block: rem(70)
+		&:active
+			.servers-item-btn
+				box-shadow: var(--box-shadow-4)
+				background: #55D992
+				color: #fff
+				transition: none
+		&-title
+			font-size: rem(32)
+		&-btn
+			font-size: rem(24)
+			min-width: unset
+			border-radius: rem(10)
+			padding: rem(18) rem(60)
+			&:focus, &:active
+				box-shadow: var(--box-shadow-4)
+				background: #55D992
+				color: #fff
+		
+
+			

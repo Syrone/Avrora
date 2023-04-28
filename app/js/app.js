@@ -1,4 +1,5 @@
 import Swiper, { Pagination, Controller } from 'swiper'
+import { ExperienceBar } from './experience.js'
 Swiper.use([Pagination, Controller])
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -147,5 +148,19 @@ document.addEventListener('DOMContentLoaded', () => {
 			}
 		})
 	})
-	
+
+	const inputAurumNode = document.querySelector('.input-aurum');
+	const experienceBar = new ExperienceBar();
+
+	experienceBar.setInitBalance(0);
+
+	inputAurumNode.addEventListener('input', () => {
+		const newBalance = inputAurumNode.valueAsNumber;
+
+		// если newBalance не NaN и больше или равно 0
+		if (newBalance >= 0 && !isNaN(newBalance)) {
+			experienceBar.addBalance(newBalance);
+		}
+	});
+
 })
