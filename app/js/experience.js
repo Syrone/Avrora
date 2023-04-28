@@ -1,12 +1,11 @@
 export class ExperienceBar {
 
 	_grades = {
-		0: { name: 'Iron', min: 0, max: 60, nextGradeId: 1 },
-		1: { name: 'Platinum', min: 60, max: 150, nextGradeId: 2 },
-		2: { name: 'Diamond', min: 150, max: 300, nextGradeId: 3 },
-		3: { name: 'Master', min: 300, max: 500, nextGradeId: 4 },
-		4: { name: 'Grandmaster', min: 500, max: 800, nextGradeId: 5 },
-		5: { name: 'Challenger', min: 800, max: 100_000, nextGradeId: null }
+		0: { name: 'Nothing', min: 0, max: 60, nextGradeId: 1 },
+		1: { name: 'Iron', min: 60, max: 150, nextGradeId: 2 },
+		2: { name: 'Platinum', min: 150, max: 300, nextGradeId: 3 },
+		3: { name: 'Diamond', min: 300, max: 500, nextGradeId: 4 },
+		4: { name: 'Bedrock', min: 500, max: 100_000, nextGradeId: null }
 	};
 
 	/**
@@ -116,8 +115,6 @@ export class ExperienceBar {
 
 		if (nextGrade !== undefined) {
 			this._nodes.balanceGrade.textContent = nextGrade.name;
-		} else {
-			this._nodes.balanceGrade.textContent = '-';
 		}
 		
 	}
