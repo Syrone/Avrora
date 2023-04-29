@@ -1,0 +1,59 @@
+<!--#set var="title" value="Aurora" -->
+<!--#include virtual="/parts/head.html" -->
+<!--#include virtual="/parts/header.html" -->
+
+<main>
+	<section class="profile">
+		<div class="container">
+			<h1 class="profile-title">Ваш профиль</h1>
+			<div class="profile-inner">
+				<div class="profile-block item">
+					<div class="profile-block-3d ">
+
+					</div>
+					<span class="profile-block-nickname">Nickname</span>
+					<div class="profile-block-btns">
+						<button class="btn btn-start profile-block-btn">Изменить ник</button>
+						<button class="btn btn-start profile-block-btn">Сменить скин</button>
+					</div>
+				</div>
+
+				<div class="profile-info item">
+					<div class="balance">
+						<div class="balance-text">
+							Максимальное количество ауромов:
+						</div>
+						<progress class="balance-progress" value="5" min="0" max="100"></progress>
+						<div class="balance-current">
+							<span class="balance-total">0</span>
+							<div class="balance-current balance-grade">Iron</div>
+						</div>
+						<a class="btn btn-start balance-btn" href="./donat.html">
+							Пополнить баланс
+						</a>
+					</div>
+					<form action="#" class="form-forgot">
+						<label class="form-label" for="password">
+							<span class="form-label-text">Пароль:</span>
+							<input class="form-label-field" autocomplete="new-password" type="password" name="forgot password" id="password" placeholder="*******" required>
+							<button class="form-label-btn" type="submit">СМЕНИТЬ ПАРОЛЬ</button>
+						</label>
+					</form>
+					<form action="#" class="form-email">
+						<label class="form-label" for="email">
+							<span class="form-label-text">Почта:</span>
+							<input class="form-label-field" type="email" name="email" id="email" required>
+							<button class="form-label-btn" type="submit">СМЕНИТЬ ПОЧТУ</button>
+						</label>
+					</form>
+					<div class="profile-info-btns">
+						<button type="button" class="btn btn-start profile-info-btn">История покупок</button>
+						<button type="button" class="btn btn-start profile-info-btn">Выйти</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</main>
+
+<!--#include virtual="/parts/footer.html" -->
