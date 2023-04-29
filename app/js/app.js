@@ -149,6 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		})
 	})
 
+	// DISPLAYING THE POSSIBLE LEVEL DURING DONATION
 	const inputAurumNode = document.querySelector('.input-aurum')
 	
 	if(document.querySelector('.balance')) {
@@ -167,5 +168,52 @@ document.addEventListener('DOMContentLoaded', () => {
 			})	
 		}
 	}
+
+	// DROPDOWN BAN-LIST
+	const optionMenu = document.querySelector('.select-menu'),
+			selectBtn = document.querySelector('.select-btn'),
+			selectOptions = document.querySelector('.select-options'),
+			options = document.querySelectorAll('.option'),
+			sBtn_text = document.querySelector('.sBtn-text')
+
+	if(selectBtn) {
+		selectBtn.addEventListener('click', () => {
+			optionMenu.classList.toggle('active')
+			selectBtn.classList.remove('active')
+		})
+	}
+
+	if(options) {
+		options.forEach(option => {
+			option.addEventListener('click', () => {
+				let selectedOption = option.querySelector('.option-btn').innerText
+				sBtn_text.innerText = selectedOption
+				selectBtn.classList.add('active')
+				optionMenu.classList.remove('active')
+			})
+			if (optionMenu.classList.contains('active')) {
+				selectOptions.style.maxHeight = selectOptions.scrollHeight + 'px'
+			} else {
+				selectOptions.style.maxHeight = null
+			}
+		})
+	}
+
+	// SELECT BAN TABLE
+	const optionBtn = document.querySelectorAll('.option-btn'),
+			banTable = document.querySelectorAll('.ban-table')
+
+	if(optionBtn) {
+		optionBtn.forEach((tab, index) => {
+			tab.addEventListener('click', () => {
+				optionBtn.forEach(tab => { tab.classList.remove('active') })
+				tab.classList.add('active')
+			
+				banTable.forEach(content => { content.classList.remove('active') })
+				banTable[index].classList.add('active')
+			})
+		})
+	}
+
 
 })

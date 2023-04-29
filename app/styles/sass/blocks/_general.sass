@@ -207,7 +207,8 @@ body.nav-active
 		padding-top: rem(140)
 
 .moderator.cta-wrapper .container,
-.donat.cta-wrapper .container
+.donat.cta-wrapper .container,
+.ban.cta-wrapper .container
 	max-width: unset
 	max-width: 1517px
 
@@ -319,3 +320,68 @@ body.nav-active
 				top: rem(8)
 				transform: translateY(-50%)
 
+.select
+	&-menu
+		width: 415px
+		position: relative
+		&.active
+			.select-options
+				padding: rem(25) rem(20) rem(25) rem(0)
+				visibility: visible
+				opacity: 1
+				.options
+					max-height: 450px 
+			.select-btn .dropdown
+				background: var(--color-ban)
+				transition: background var(--trt-theme)
+	&-options
+		visibility: hidden
+		opacity: 0
+		border-radius: 0 0 var(--border-radius) var(--border-radius)
+		background: var(--color-options)
+		padding: rem(0) rem(20) rem(0) rem(0)
+		position: absolute
+		top: 100%
+		left: 0
+		z-index: 5
+		transition: background var(--trt-theme), padding var(--trt-theme), opacity var(--trt-theme)
+		.options
+			max-height: 0
+			padding-inline: rem(70) rem(30)
+			color: #000
+			overflow-y: scroll
+			position: relative
+			transition: max-height var(--trt-theme), padding var(--trt-theme)
+			.option
+				font-weight: 500
+				cursor: pointer
+				white-space: nowrap
+				& + .option
+					margin-top: rem(35)
+	&-btn
+		display: flex
+		align-items: center
+		min-height: 72px
+		padding-inline: rem(30) rem(70)
+		background: var(--color-ban)
+		cursor: pointer
+		position: relative
+		&.active
+			background: var(--color-ban-active)
+			.dropdown
+				background: var(--color-ban-active)
+		.dropdown
+			width: 30px
+			height: 100%
+			padding-inline: rem(30)
+			background: var(--color-ban-toggle)
+			box-sizing: content-box
+			position: absolute
+			right: 0
+			top: 0
+			svg
+				display: block
+				width: 100%
+				height: 100%
+				object-fit: cover
+				fill: #fff

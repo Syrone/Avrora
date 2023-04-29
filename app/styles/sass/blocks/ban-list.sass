@@ -3,7 +3,59 @@
 		font-size: rem(36)
 		text-align: center
 		margin-bottom: rem(75)
-	&-item
-		&-btn
-			padding: rem(22) rem(140) rem(22) rem(75)
-			color: #fff
+	&-header
+		display: flex
+		align-items: center
+		justify-content: space-between
+		gap: 15px
+		margin-bottom: rem(45)
+		.select-menu
+			flex-shrink: 0
+		.ban-search-field
+			min-height: 72px
+			border-radius: 0
+			padding: rem(22)
+			color: var(--text-color)
+			background: var(--color-ban)
+			text-align: center
+			&::placeholder
+				color: var(--text-color)
+				text-align: center
+				transition: opacity var(--trt), color var(--trt-theme)
+			&:focus::placeholder
+				opacity: 0
+			&:hover::placeholder
+				color: var(--text-color-focus)
+		.ban-search-btn
+			font-size: inherit
+			padding-block: rem(22)
+			min-height: 72px
+			color: var(--text-color)
+			background: var(--color-ban)
+			&:is(:hover, :active)
+				background: #05AEDA
+				color: var(--text-color-focus)
+	&-content
+		min-height: 700px
+	&-table
+		display: none
+		width: 100%
+		background: var(--color-ban)
+		border-radius: var(--border-radius)
+		border-collapse: collapse
+		&.active
+			display: table
+		th, td
+			border-bottom: 3px solid #fff
+			border-right: 3px solid #fff	
+			padding-block: rem(25)
+		tr
+			text-align: center
+			&:last-child td
+				border-bottom: none
+			td:last-child, th:last-child
+				border-right: none
+			.nickname
+				min-width: 125px
+				max-width: 125px
+

@@ -209,8 +209,30 @@
 			gap: 50px
 
 	.moderator.cta-wrapper .container,
-	.donat.cta-wrapper .container
+	.donat.cta-wrapper .container,
+	.ban.cta-wrapper .container
 		max-width: unset
+
+	.select
+		&-menu
+			width: 830px
+			&.active
+				.select-options
+					padding: rem(50) rem(40) rem(50) rem(0)
+					.options
+						max-height: 900px
+		&-options
+			padding: rem(0) rem(40) rem(0) rem(0)
+			.options
+				padding-inline: rem(60) rem(150)
+				.option + .option
+					margin-top: rem(70)
+		&-btn
+			min-height: 144px
+			padding-inline: rem(60) rem(140)
+			.dropdown
+				width: 60px
+				padding-inline: rem(60)
 
 	.connect
 		&-title
@@ -536,6 +558,30 @@
 					height: 40px
 					width: 50px
 
+	.ban
+		&-title
+			font-size: rem(72)
+			margin-bottom: rem(150)
+		&-header
+			gap: 30px
+			margin-bottom: rem(90)
+			.ban-search-field
+				min-height: 144px
+				padding: rem(44)
+			.ban-search-btn
+				padding-block: rem(44)
+				min-height: 144px
+		&-content
+			min-height: 800px
+		&-table
+			th, td
+				border-bottom: 6px solid #fff
+				border-right: 6px solid #fff	
+				padding-block: rem(50)
+			tr .nickname
+				min-width: 250px
+				max-width: 250px
+
 	.footer
 		font-size: rem(40)
 		padding-block: rem(60)
@@ -717,8 +763,30 @@
 			gap: rem(75)
 
 	.moderator.cta-wrapper .container,
-	.donat.cta-wrapper .container
+	.donat.cta-wrapper .container,
+	.ban.cta-wrapper .container
 		max-width: unset
+
+	.select
+		&-menu
+			width: 1140px
+			&.active
+				.select-options
+					padding: rem(75) rem(60) rem(75) rem(0)
+					.options
+						max-height: 1000px
+		&-options
+			padding: rem(0) rem(60) rem(0) rem(0)
+			.options
+				padding-inline: rem(90) rem(225)
+				.option + .option
+					margin-top: rem(105)
+		&-btn
+			min-height: 216px
+			padding-inline: rem(90) rem(210)
+			.dropdown
+				width: 90px
+				padding-inline: rem(90)
 
 	.connect
 		&-title
@@ -1041,6 +1109,30 @@
 				&::after
 					height: 40px
 					width: 50px
+
+	.ban
+		&-title
+			font-size: rem(108)
+			margin-bottom: rem(225)
+		&-header
+			gap: 45px
+			margin-bottom: rem(135)
+			.ban-search-field
+				min-height: 216px
+				padding: rem(66)
+			.ban-search-btn
+				padding-block: rem(66)
+				min-height: 216px
+		&-content
+			min-height: 1000px
+		&-table
+			th, td
+				border-bottom: 9px solid #fff
+				border-right: 9px solid #fff	
+				padding-block: rem(75)
+			tr .nickname
+				min-width: 375px
+				max-width: 375px
 
 	.footer
 		font-size: rem(60)
