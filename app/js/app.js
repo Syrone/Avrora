@@ -1,5 +1,8 @@
 import Swiper, { Pagination, Controller } from 'swiper'
 import { ExperienceBar } from './experience.js'
+import * as THREE from 'three'
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
 Swiper.use([Pagination, Controller])
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -151,39 +154,39 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	// DISPLAYING THE POSSIBLE LEVEL DURING DONATION
 	const inputAurumNode = document.querySelector('.input-aurum')
-	
-	if(document.querySelector('.balance')) {
+
+	if (document.querySelector('.balance')) {
 		const experienceBar = new ExperienceBar()
-		if(experienceBar) {
+		if (experienceBar) {
 			experienceBar.setInitBalance(0)
 		}
-		if(inputAurumNode) {
+		if (inputAurumNode) {
 			inputAurumNode.addEventListener('input', () => {
 				const newBalance = inputAurumNode.valueAsNumber
-		
+
 				// если newBalance не NaN и больше или равно 0
 				if (newBalance >= 0 && !isNaN(newBalance)) {
 					experienceBar.addBalance(newBalance)
 				}
-			})	
+			})
 		}
 	}
 
 	// DROPDOWN BAN-LIST
 	const optionMenu = document.querySelector('.select-menu'),
-			selectBtn = document.querySelector('.select-btn'),
-			selectOptions = document.querySelector('.select-options'),
-			options = document.querySelectorAll('.option'),
-			sBtn_text = document.querySelector('.sBtn-text')
+		selectBtn = document.querySelector('.select-btn'),
+		selectOptions = document.querySelector('.select-options'),
+		options = document.querySelectorAll('.option'),
+		sBtn_text = document.querySelector('.sBtn-text')
 
-	if(selectBtn) {
+	if (selectBtn) {
 		selectBtn.addEventListener('click', () => {
 			optionMenu.classList.toggle('active')
 			selectBtn.classList.remove('active')
 		})
 	}
 
-	if(options) {
+	if (options) {
 		options.forEach(option => {
 			option.addEventListener('click', () => {
 				let selectedOption = option.querySelector('.option-btn').innerText
@@ -201,19 +204,90 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	// SELECT BAN TABLE
 	const optionBtn = document.querySelectorAll('.option-btn'),
-			banTable = document.querySelectorAll('.ban-table')
+		banTable = document.querySelectorAll('.ban-table')
 
-	if(optionBtn) {
+	if (optionBtn) {
 		optionBtn.forEach((tab, index) => {
 			tab.addEventListener('click', () => {
 				optionBtn.forEach(tab => { tab.classList.remove('active') })
 				tab.classList.add('active')
-			
+
 				banTable.forEach(content => { content.classList.remove('active') })
 				banTable[index].classList.add('active')
 			})
 		})
 	}
 
+	//THREE.JS
+	const canvas = document.querySelector('.webgl'),
+			scene = new THREE.Scene(),
+			camera = new THREE.PerspectiveCamera(25, window.innerWidth / window.innerHeight, 1, 100),
+			loader = new GLTFLoader(),
+			renderer = new THREE.WebGL1Renderer({ alpha: true })
+
+	let object,
+		controls,
+		objToRender = 'skinHero'
+		// mouseX = window.innerWidth / 2,
+		// mouseY = window.innerHeight / 2
+
+	loader.load(
+		`../models/${objToRender}/scene.gltf`,
+		gltf => {
+			object = gltf.scene
+			scene.add(object)
+		},
+		xhr => {
+			console.log((xhr.loaded / xhr.total * 100) + '% Загружено')
+		},
+		error => {
+			console.error(error)
+		}
+	)
+
+	renderer.setSize(window.innerWidth, window.innerHeight)
+
+	canvas.appendChild(renderer.domElement)
+
+	camera.position.z = 5
+	camera.position.y = -2
+	camera.position.x = 3.5
+
+	scene.position.y = -1
+
+	const topLight = new THREE.DirectionalLight(0xffffff, 1)
+	topLight.position.set(100, 100, 100)
+	topLight.castShadow = true
+	scene.add(topLight)
+
+	const aLight = new THREE.AmbientLight(0x333333, objToRender === 'skinHero' ? 15 : 1)
+	scene.add(aLight)
+
+	if(objToRender === 'skinHero') {
+		controls = new OrbitControls(camera, renderer.domElement)
+	}
+
+	function animate() {
+		requestAnimationFrame(animate)
+
+		// if(object && objToRender === 'skinHero') {
+		// 	object.rotation.y = -3 + mouseX / window.innerWidth * 3
+		// 	object.rotation.x = -1.2 + mouseY * 2.5 / window.innerHeight
+		// }
+
+		controls.update()
+		controls.maxDistance = 10
+		controls.minDistance = 5
+
+		renderer.render(scene, camera)
+	}
+
+	window.addEventListener('resize', function() {
+		camera.aspect = window.innerWidth / window.innerHeight
+		camera.updateProjectionMatrix()
+		renderer.setSize(window.innerWidth, window.innerHeight)
+	})
+
+	animate()
 
 })
