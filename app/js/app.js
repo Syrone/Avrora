@@ -7,6 +7,7 @@ Swiper.use([Pagination, Controller])
 
 document.addEventListener('DOMContentLoaded', () => {
 
+	//CHANGE BACKGROUND
 	const randomBg = document.getElementById('randomBg'),
 		imagesLight = ['images/dist/background/light-bg-1.jpg', 'images/dist/background/light-bg-2.jpg', 'images/dist/background/light-bg-3.jpg'],
 		imagesDark = ['images/dist/background/dark-bg-1.jpg', 'images/dist/background/dark-bg-2.jpg', 'images/dist/background/dark-bg-3.jpg']
@@ -76,35 +77,47 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		themeButton.addEventListener('click', getCurrentBg)
 	}
-
+	//ADD	EVENT ON MULTIPLE ELEMENTS
 	const addEventOnElements = function (elements, eventType, callback) {
 		for (let i = 0, len = elements.length; i < len; i++) {
 			elements[i].addEventListener(eventType, callback)
 		}
 	}
 
+	//NAVBAR TOGGLER FOR MOBILE
+	const navbar = document.querySelector('[data-navbar]'),
+		navTogglers = document.querySelectorAll('[data-nav-toggler]'),
+		overlay = document.querySelector('[data-overlay]')
+
+	const togglerNavbar = function () {
+		if(overlay.classList.contains('active')){
+			navbar.classList.remove('active'),
+			overlay.classList.remove('active'),
+			document.body.classList.remove('nav-active')
+		} else {
+			navbar.classList.add('active'),
+			overlay.classList.add('active'),
+			document.body.classList.add('nav-active')
+		}
+	}
+
+	addEventOnElements(navTogglers, 'click', togglerNavbar)
+	// overlay.addEventListener('click' , closeNavbar)
+
 	//CALLING THE REGISTRATION FORM
-	const signupForm = document.querySelector('[data-form-signup]'),
+	const connectForm = document.querySelectorAll('.wrapper-form'),
+		signupForm = document.querySelector('[data-form-signup]'),
 		loginForm = document.querySelector('[data-form-login]'),
 		forgotForm = document.querySelector('[data-form-forgot]'),
 		loginLink = document.querySelector('[data-login-link]'),
 		signLink = document.querySelector('[data-signup-link]'),
 		forgotLink = document.querySelector('[data-forgot-link]'),
-		signupBtn = document.querySelectorAll('[data-btn-signup]'),
-		overlay = document.querySelector('[data-overlay]')
+		signupBtn = document.querySelectorAll('[data-btn-signup]')
 
 	const openForm = function () {
 		overlay.classList.add('active')
 		signupForm.classList.add('active')
 		document.body.classList.add('nav-active')
-	}
-
-	const closeForm = function () {
-		overlay.classList.remove('active')
-		signupForm.classList.remove('active')
-		loginForm.classList.remove('active')
-		forgotForm.classList.remove('active')
-		document.body.classList.remove('nav-active')
 	}
 
 	if (loginLink) {
@@ -128,11 +141,17 @@ document.addEventListener('DOMContentLoaded', () => {
 		})
 	}
 
-	if (signupBtn) {
-		addEventOnElements(signupBtn, 'click', openForm)
+	if (signupForm) {
+		addEventOnElements(signupBtn, 'click', openForm),
+		overlay.addEventListener('click', () => {
+			overlay.classList.remove('active')
+			signupForm.classList.remove('active')
+			loginForm.classList.remove('active')
+			forgotForm.classList.remove('active')
+			document.body.classList.remove('nav-active')
+		})
 	}
 
-	overlay.addEventListener('click', closeForm)
 
 	// OPEN AND CLOSE ACCORDION IN QUESTIONS.HTML
 	const accordions = document.querySelectorAll('[data-accordion]')
@@ -219,75 +238,81 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 
 	//THREE.JS
-	const canvas = document.querySelector('.webgl'),
-			scene = new THREE.Scene(),
-			camera = new THREE.PerspectiveCamera(25, window.innerWidth / window.innerHeight, 1, 100),
-			loader = new GLTFLoader(),
-			renderer = new THREE.WebGL1Renderer({ alpha: true })
+	const block = document.querySelector('.c-viewer'),
+		container = document.querySelector('.webgl'),
+		scene = new THREE.Scene(),
+		camera = new THREE.PerspectiveCamera(25, block.offsetWidth / block.offsetHeight, 1, 100),
+		loader = new GLTFLoader(),
+		renderer = new THREE.WebGL1Renderer({ alpha: true })
 
-	let object,
-		controls,
-		objToRender = 'skinHero'
+	if (container) {
+		let object,
+			controls,
+			objToRender = 'skinHero'
 		// mouseX = window.innerWidth / 2,
 		// mouseY = window.innerHeight / 2
 
-	loader.load(
-		`../models/${objToRender}/scene.gltf`,
-		gltf => {
-			object = gltf.scene
-			scene.add(object)
-		},
-		xhr => {
-			console.log((xhr.loaded / xhr.total * 100) + '% Загружено')
-		},
-		error => {
-			console.error(error)
+		container.style.width = block.offsetWidth + 'px'
+		container.style.height = block.offsetHeight + 'px'
+
+		loader.load(
+			`./models/${objToRender}/scene.gltf`,
+			gltf => {
+				object = gltf.scene
+				scene.add(object)
+			},
+			xhr => {
+				console.log((xhr.loaded / xhr.total * 100) + '% Загружено')
+			},
+			error => {
+				console.error(error)
+			}
+		)
+
+		renderer.setSize(block.offsetWidth, block.offsetHeight)
+
+		container.appendChild(renderer.domElement)
+
+		camera.position.z = 5
+		camera.position.y = -2
+		camera.position.x = 3.5
+
+		scene.position.y = -1
+
+		const topLight = new THREE.DirectionalLight(0xffffff, 1)
+		topLight.position.set(100, 100, 100)
+		topLight.castShadow = true
+		scene.add(topLight)
+
+		const aLight = new THREE.AmbientLight(0x333333, objToRender === 'skinHero' ? 15 : 1)
+		scene.add(aLight)
+
+		if (objToRender === 'skinHero') {
+			controls = new OrbitControls(camera, renderer.domElement)
 		}
-	)
 
-	renderer.setSize(window.innerWidth, window.innerHeight)
+		function animate() {
+			requestAnimationFrame(animate)
 
-	canvas.appendChild(renderer.domElement)
+			// if(object && objToRender === 'skinHero') {
+			// 	object.rotation.y = -3 + mouseX / window.innerWidth * 3
+			// 	object.rotation.x = -1.2 + mouseY * 2.5 / window.innerHeight
+			// }
 
-	camera.position.z = 5
-	camera.position.y = -2
-	camera.position.x = 3.5
+			controls.update()
+			controls.maxDistance = 10
+			controls.minDistance = 5
 
-	scene.position.y = -1
+			renderer.render(scene, camera)
+		}
 
-	const topLight = new THREE.DirectionalLight(0xffffff, 1)
-	topLight.position.set(100, 100, 100)
-	topLight.castShadow = true
-	scene.add(topLight)
+		window.addEventListener('resize', function () {
+			camera.aspect = block.offsetWidth / block.offsetHeight
+			camera.updateProjectionMatrix()
+			renderer.setSize(block.offsetWidth, block.offsetHeight)
+		})
 
-	const aLight = new THREE.AmbientLight(0x333333, objToRender === 'skinHero' ? 15 : 1)
-	scene.add(aLight)
-
-	if(objToRender === 'skinHero') {
-		controls = new OrbitControls(camera, renderer.domElement)
+		animate()
 	}
-
-	function animate() {
-		requestAnimationFrame(animate)
-
-		// if(object && objToRender === 'skinHero') {
-		// 	object.rotation.y = -3 + mouseX / window.innerWidth * 3
-		// 	object.rotation.x = -1.2 + mouseY * 2.5 / window.innerHeight
-		// }
-
-		controls.update()
-		controls.maxDistance = 10
-		controls.minDistance = 5
-
-		renderer.render(scene, camera)
-	}
-
-	window.addEventListener('resize', function() {
-		camera.aspect = window.innerWidth / window.innerHeight
-		camera.updateProjectionMatrix()
-		renderer.setSize(window.innerWidth, window.innerHeight)
-	})
-
-	animate()
 
 })
