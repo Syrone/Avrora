@@ -8,8 +8,8 @@
 			flex-direction: column
 			position: fixed
 			top: 0
-			right: -350px
-			max-width: 350px
+			right: -450px
+			max-width: 450px
 			width: 100%
 			height: 100vh
 			padding: rem(60) rem(30)
@@ -18,8 +18,9 @@
 			z-index: 20
 			visibility: hidden
 			opacity: 0
+			box-sizing: border-box
 			&.active
-				transform: translateX(-350px)
+				transform: translateX(-450px)
 				transition-duration: 500ms
 				visibility: visible
 				opacity: 1
@@ -39,7 +40,7 @@
 		&-buttons
 			gap: unset
 			justify-content: space-around
-			margin-block: auto rem(100)
+			margin-top: auto
 		&-toggle-btn
 			display: inline-block
 
@@ -214,6 +215,27 @@
 			min-height: rem(55)
 			min-width: rem(120)
 
+	.nav-list
+		.nav-item
+			&:not(:first-child)
+				padding: 0
+			.sub-nav-list
+				padding: rem(30)
+				gap: 5px
+				.arrow-dropdown
+					margin-bottom: rem(20)
+				a
+					display: block
+					width: 100%
+					padding-block: rem(15)
+			.sub-nav-item
+				width: 100%
+			a
+				display: block
+				width: 100%
+				padding-block: rem(25)
+		
+
 	.hero
 		&-content
 			&-title
@@ -259,15 +281,24 @@
 			&.active
 				.questions-item-content
 					padding-inline: rem(75)
-		&-chat
+		.questions-chat
 			.container
 				justify-content: center
 				@include adaptive-value('padding-inline', 60, 15, 1)
 				text-align: center
+			&-title
+				font-size: rem(32)
+				margin-bottom: rem(50)
 			&-img
 				display: none
+			&-btn
+				border-radius: var(--border-radius-2)
+				padding: rem(20) rem(50)
+				font-size: rem(20)
 
 	.servers
+		.container
+			padding-bottom: rem(60)
 		&-wrapper
 			gap: 20px
 		&-item-title
@@ -277,6 +308,9 @@
 		font-size: rem(24)
 		line-height: rem(40)
 		margin-top: unset
+
+	.news-title
+		margin-bottom: rem(40)
 
 	.terms
 		&-title
@@ -300,17 +334,42 @@
 
 	.commands-inner, .policy-inner, .terms-inner
 		padding-block: rem(45) rem(20)
+
+	.rules
+		padding-block: rem(120) rem(60)
+		&-header-list
+			@include adaptive-value('padding-inline', 140, 15, 1)
+			text-align: center
+			li
+				width: max-content
+				margin-inline: auto
+		&-text-list
+			@include adaptive-value('padding-inline', 90, 15, 1)
+
+	.commands
+		padding-block: rem(120) rem(60)
 		
 	.footer
+		.container
+			gap: 30px
 		&-list
 			flex-wrap: wrap
 			justify-content: center
+			gap: 15px
+			text-align: center
 		&-item
 			display: block
-			width: 40%
+			width: 45%
+		&-copy
+			text-align: center
 
 
 @media ( max-width: 768px )
+	:root
+		--body-gradient: radial-gradient(60% 60% at 50% 50%, transparent 0%, var(--body-color) 100%)
+	body.dark-theme
+		--body-gradient: radial-gradient(60% 60% at 50% 50%, transparent 0%, var(--body-color) 100%)
+
 	.hero
 		margin-bottom: rem(15)
 		&-content
@@ -333,6 +392,37 @@
 		&-image
 			display: none
 
+	.profile
+		.item
+			min-height: unset
+		&-block
+			max-width: 100%
+			padding-inline: rem(25)
+			&-btns
+				flex-wrap: wrap
+			&-btn.btn-start
+				width: 100%
+				max-width: 100%
+		&-info 
+			width: 100%
+			&-btn.btn-start
+				padding-inline: rem(15)
+			.balance-btn
+				margin-top: rem(10)
+				padding: rem(20)
+				min-width: unset
+				max-width: unset
+				width: 100%
+			.form-label-btn
+				height: auto
+				top: 68%
+		.form-label-text
+			display: block
+			position: static
+			margin-block: rem(10)
+		.form-label-field
+			padding-inline: rem(15) rem(230)
+
 	.connect
 		&-title
 			text-align: center
@@ -344,6 +434,10 @@
 	.wrapper-form
 		max-width: 450px
 		padding: rem(20) rem(35)
+		input
+			text-align: center
+			&::placeholder
+				text-align: center
 		.form-title
 			text-align: center
 			button:first-of-type:after
@@ -357,8 +451,92 @@
 		.btn-sign
 			min-width: max-content
 			padding: rem(32) rem(40)
+	
+	.download
+		&-wrapper
+			grid-template-columns: 1fr
+			gap: 20px
+		&-item:first-child, &-item
+			grid-column: auto
+		&-item
+			max-width: 550px
 
+	.questions
+		padding-top: rem(120)
+		&-item
+			&-control
+				gap: 20px
+			&-icon
+				flex-shrink: 0
+		.questions-chat
+			&-btns
+				flex-wrap: wrap
+			&-btn
+				width: 100%
+				max-width: unset
+				min-width: unset
 
+	.news-top
+		flex-direction: column
+		&-img
+			width: 192px
+
+	.ban
+		&-title
+			margin-bottom: rem(50)
+		.select-menu,
+		.ban-search-field,
+		.ban-search-btn
+			width: 100%
+		.select-btn
+			padding-inline: rem(15) rem(90)
+		&-content
+			overflow-x: auto
+		&-table
+			min-width: 738px
+
+	.donat
+		&-form
+			padding: rem(30) rem(15)
+			gap: 20px
+			text-align: center
+			input
+				text-align: center
+			&-title
+				max-width: 400px
+				margin-inline: auto
+			&-btn
+				min-width: unset
+				width: 100%
+				max-width: 300px
+				padding: rem(20)
+		.balance
+			padding: rem(25) rem(15)
+
+	.servers-wrapper
+		grid-template-columns: 1fr
+
+@media ( max-width: 600px )
+	.hero-server-list
+		flex-wrap: wrap
+		flex-direction: row
+	.hero-server-item
+		flex-direction: column
+		width: 100%
+		gap: 15px
+		padding-bottom: rem(30)
+		text-align: center
+	.hero-server-online
+		justify-content: center
+
+	.questions
+		input, .questions-list-title, .questions-item-control, .questions-item-content, .questions-item.active .questions-item-content
+			padding-left: rem(20)
+		&-list
+			margin-bottom: rem(60)
+		.questions-item-content, .questions-item.active .questions-item-content
+			padding-inline: rem(20)
+	
 @media ( min-width: 2048px )
 	.swiper-bg-random
 		min-height: unset
