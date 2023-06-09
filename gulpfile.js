@@ -64,7 +64,7 @@ function scripts() {
 				]
 			},
 			optimization: {
-				minimize: false,
+				minimize: true,
 				minimizer: [
 					new TerserPlugin({
 						terserOptions: { format: { comments: false } },

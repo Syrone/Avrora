@@ -37,10 +37,10 @@ body.nav-active
 		border-radius: rem(40)
 		background-color: #05AEDA
 		color: #fff
-		&:hover
+		&:hover, &:focus
 			color: #fff
 			box-shadow: var(--box-shadow-1)
-		&:active, &:focus
+		&:active
 			background-color: #fff
 			color: #000
 			box-shadow: var(--box-shadow-1)
@@ -51,7 +51,7 @@ body.nav-active
 		background-color: var(--color-btn)
 		padding: rem(32) rem(100)
 		color: #fff
-		&:is(:hover, :focus)
+		&:hover
 			color: #000
 			background-color: var(--color-btn-light)
 	&-social
@@ -79,11 +79,22 @@ body.nav-active
 			fill: #fff
 			object-fit: cover
 			transition: var(--trt-theme)
-		&:is(:hover, :focus)
+		&:hover
 			background-color: var(--body-color)
 			box-shadow: var(--box-shadow-2)
 			svg
 				fill: var(--text-color)
+		&:active
+			transition: none
+			svg
+				fill: #fff
+				transition: none
+			&.btn-social-vk
+				background-color: #2787F5
+			&.btn-social-discord
+				background-color: #5769E7
+			&.btn-social-telegram
+				background-color: #28AAEB
 	&-transparent
 		font-size: rem(24)
 		font-weight: 700
@@ -96,10 +107,10 @@ body.nav-active
 		width: 0
 		height: rem(2)
 		position: absolute
-		background: #fff
+		background-color: currentColor
 		left: 0
 		bottom: rem(-2)
-		transition: var(--trt)
+		transition: width var(--trt)
 	&:is(:hover, :focus)::after
 		width: 100%
 
@@ -137,6 +148,12 @@ body.nav-active
 		fill: var(--text-color)
 		object-fit: cover
 		transition: var(--trt-theme)
+	&-action
+		cursor: pointer
+		&:hover svg
+			fill: var(--text-color-focus)
+		&:active svg
+			fill: var(--color-windows-focus)
 
 .ios
 	width: rem(53)
@@ -148,6 +165,12 @@ body.nav-active
 		fill: var(--text-color)
 		object-fit: cover
 		transition: var(--trt-theme)
+	&-action
+		cursor: pointer
+		&:hover svg
+			fill: var(--text-color-focus)
+		&:active svg
+			fill: var(--color-windows-focus)
 
 .linux
 	width: rem(57)
@@ -163,7 +186,46 @@ body.nav-active
 			transition: var(--trt-theme)
 			&:nth-of-type(7)
 				fill: var(--text-color)
-				
+	&-action
+		cursor: pointer
+		&:hover svg
+			path:nth-of-type(1)
+				fill: #FFBD00
+			path:nth-of-type(2)
+				fill: #FFBD00
+			path:nth-of-type(3)
+				fill: #FFBD00
+			path:nth-of-type(4)
+				fill: #fff
+			path:nth-of-type(5)
+				fill: #fff
+			path:nth-of-type(6)
+				fill: #fff
+			path:nth-of-type(7)
+				fill: #000
+			path:nth-of-type(8)
+				fill: #fff
+			path:nth-of-type(9)
+				fill: #ff
+		&:active svg
+			path:nth-of-type(1)
+				fill: #FFBD00
+			path:nth-of-type(2)
+				fill: #FFBD00
+			path:nth-of-type(3)
+				fill: #FFBD00
+			path:nth-of-type(4)
+				fill: #fff
+			path:nth-of-type(5)
+				fill: #fff
+			path:nth-of-type(6)
+				fill: #fff
+			path:nth-of-type(7)
+				fill: #000
+			path:nth-of-type(8)
+				fill: #fff
+			path:nth-of-type(9)
+				fill: #fff
 
 .img-cover
 	max-width: 100%
@@ -212,7 +274,7 @@ body.nav-active
 	max-width: unset
 	max-width: 1517px
 
-.wrapper-form
+.popup
 	display: none
 	max-width: 1170px
 	width: 100%
@@ -296,7 +358,7 @@ body.nav-active
 		li
 			display: block
 			&::before
-				content: counters(item, ".") ". "
+				content: counters(item, ".") "."
 				counter-increment: item
 		.reboot
 			counter-reset: none
@@ -305,9 +367,9 @@ body.nav-active
 			counter-set: item 4
 	&-item
 		&.no-list-style
-				list-style: none
-				&::before
-					display: none
+			list-style: none
+			&::before
+				display: none
 		&.list-string
 			position: relative
 			padding-left: rem(20)
@@ -388,21 +450,21 @@ body.nav-active
 				visibility: visible
 				opacity: 1
 				.options
-					max-height: 450px 
+					max-height: 450px
 			.select-btn .dropdown
-				background: var(--color-ban)
-				transition: background var(--trt-theme)
+				background-color: var(--color-ban)
+				transition: background-color var(--trt-theme)
 	&-options
 		visibility: hidden
 		opacity: 0
 		border-radius: 0 0 var(--border-radius) var(--border-radius)
-		background: var(--color-options)
+		background-color: var(--color-options)
 		padding: rem(0) rem(20) rem(0) rem(0)
 		position: absolute
 		top: 100%
 		left: 0
 		z-index: 5
-		transition: background var(--trt-theme), padding var(--trt-theme), opacity var(--trt-theme)
+		transition: background-color var(--trt-theme), padding var(--trt-theme), opacity var(--trt-theme)
 		.options
 			max-height: 0
 			padding-inline: rem(70) rem(30)

@@ -90,22 +90,22 @@ document.addEventListener('DOMContentLoaded', () => {
 		overlay = document.querySelector('[data-overlay]')
 
 	const togglerNavbar = function () {
-		if(overlay.classList.contains('active')){
+		if (overlay.classList.contains('active')) {
 			navbar.classList.remove('active'),
-			overlay.classList.remove('active'),
-			document.body.classList.remove('nav-active')
+				overlay.classList.remove('active'),
+				document.body.classList.remove('nav-active')
 		} else {
 			navbar.classList.add('active'),
-			overlay.classList.add('active'),
-			document.body.classList.add('nav-active')
+				overlay.classList.add('active'),
+				document.body.classList.add('nav-active')
 		}
 	}
 
 	addEventOnElements(navTogglers, 'click', togglerNavbar)
 	// overlay.addEventListener('click' , closeNavbar)
 
-	//CALLING THE REGISTRATION FORM
-	const connectForm = document.querySelectorAll('.wrapper-form'),
+	//POPUP REGISTRATION FORM
+	const connectForm = document.querySelectorAll('.popup'),
 		signupForm = document.querySelector('[data-form-signup]'),
 		loginForm = document.querySelector('[data-form-login]'),
 		forgotForm = document.querySelector('[data-form-forgot]'),
@@ -143,13 +143,46 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	if (signupForm) {
 		addEventOnElements(signupBtn, 'click', openForm),
+			overlay.addEventListener('click', () => {
+				overlay.classList.remove('active')
+				signupForm.classList.remove('active')
+				loginForm.classList.remove('active')
+				forgotForm.classList.remove('active')
+				document.body.classList.remove('nav-active')
+			})
+	}
+
+	//POPUP GAMES SERVER
+	const serverButtons = document.querySelectorAll('[data-btn-miniGame], [data-btn-oneBlock], [data-btn-survival], [data-btn-town]');
+	const serverPopups = document.querySelectorAll('[data-server-miniGame], [data-server-oneBlock], [data-server-survival], [data-server-town]');
+
+	if (serverButtons && serverPopups) {
+		serverButtons.forEach((button, index) => {
+			button.addEventListener('click', () => {
+				serverPopups[index].classList.add('active');
+				overlay.classList.add('active');
+			});
+		});
+
 		overlay.addEventListener('click', () => {
-			overlay.classList.remove('active')
-			signupForm.classList.remove('active')
-			loginForm.classList.remove('active')
-			forgotForm.classList.remove('active')
-			document.body.classList.remove('nav-active')
-		})
+			serverPopups.forEach(popup => popup.classList.remove('active'));
+			overlay.classList.remove('active');
+		});
+	}
+
+
+	//PROFILE LINK SIGN IN
+	const profileLoginLink = document.getElementById('profileSignin');
+	if (profileLoginLink) {
+		profileLoginLink.addEventListener('click', (event) => {
+			event.preventDefault();
+			window.location.href = 'connect.html?showSignin=true';
+		});
+	}
+
+	if (loginForm && new URLSearchParams(window.location.search).get('showSignin') === 'true') {
+		loginForm.classList.add('active')
+		overlay.classList.add('active')
 	}
 
 
@@ -237,23 +270,61 @@ document.addEventListener('DOMContentLoaded', () => {
 		})
 	}
 
+	const banUsernameInput = document.getElementById('ban-username');
+	const moderatorUsernameInput = document.getElementById('moderator-username');
+	const searchBtn = document.getElementById('table-search');
+
+	if (searchBtn) {
+		searchBtn.addEventListener('click', () => {
+			const banUsername = banUsernameInput.value;
+			const moderatorUsername = moderatorUsernameInput.value;
+
+			if (!banUsername && !moderatorUsername) {
+				alert('Заполните одно из полей, чтобы начать поиск.');
+				return;
+			}
+
+			let firstMatchFound = false;
+
+			banTable.forEach(table => {
+				table.classList.remove('active');
+				const rows = table.querySelectorAll('tr');
+
+				for (let i = 0; i < rows.length && !firstMatchFound; i++) {
+					const nicknameCell = rows[i].querySelector('.nickname');
+					if (nicknameCell) {
+						if ((banUsername && nicknameCell.textContent === banUsername) || (moderatorUsername && nicknameCell.textContent === moderatorUsername)) {
+							table.classList.add('active');
+							firstMatchFound = true;
+						}
+					}
+				}
+			});
+
+			if (!firstMatchFound) {
+				alert('Никнейм не найден.');
+			}
+		});
+	}
+
+
+
 	//THREE.JS
 	const block = document.querySelector('.c-viewer'),
-		container = document.querySelector('.webgl'),
-		scene = new THREE.Scene(),
-		camera = new THREE.PerspectiveCamera(25, block.offsetWidth / block.offsetHeight, 1, 100),
-		loader = new GLTFLoader(),
-		renderer = new THREE.WebGL1Renderer({ alpha: true })
+		container3DObj = document.querySelector('.webgl')
 
-	if (container) {
+
+	if (container3DObj) {
+		const scene = new THREE.Scene(),
+			camera = new THREE.PerspectiveCamera(25, block.offsetWidth / block.offsetHeight, 1, 100),
+			loader = new GLTFLoader(),
+			renderer = new THREE.WebGL1Renderer({ alpha: true })
+
 		let object,
 			controls,
 			objToRender = 'skinHero'
 		// mouseX = window.innerWidth / 2,
 		// mouseY = window.innerHeight / 2
-
-		container.style.width = block.offsetWidth + 'px'
-		container.style.height = block.offsetHeight + 'px'
 
 		loader.load(
 			`./models/${objToRender}/scene.gltf`,
@@ -271,7 +342,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		renderer.setSize(block.offsetWidth, block.offsetHeight)
 
-		container.appendChild(renderer.domElement)
+		container3DObj.appendChild(renderer.domElement)
 
 		camera.position.z = 5
 		camera.position.y = -2

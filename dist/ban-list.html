@@ -10,7 +10,7 @@
 	<title>Aurora</title>
 	<meta name="description" content="Aurora project website">
 
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<link rel="icon" href="images/favicon.svg">
 	
@@ -173,11 +173,11 @@
 						</ul>
 					</div>
 				</div>
-				<input type="text" autocomplete="username" name="login" placeholder="Никнейм игрока"
+				<input type="text" id="ban-username" autocomplete="username" name="login" placeholder="Никнейм игрока"
 					class="ban-search-field" required>
-				<input type="text" autocomplete="username" name="login" placeholder="Никнейм модератора"
-					class="ban-search-field" required>
-				<button type="button" class="btn ban-search-btn">Поиск</button>
+				<input type="text" id="moderator-username" autocomplete="username" name="login"
+					placeholder="Никнейм модератора" class="ban-search-field" required>
+				<button type="button" id="table-search" class="btn ban-search-btn">Поиск</button>
 			</div>
 			<div class="ban-content">
 				<table class="ban-table">
@@ -197,155 +197,11 @@
 							<td class="ban-end">dataend1</td>
 						</tr>
 						<tr>
-							<td class="nickname"></td>
-							<td class="reason"></td>
-							<td class="ban-start"></td>
-							<td class="ban-end"></td>
-						</tr>
-						<tr>
-							<td class="nickname"></td>
-							<td class="reason"></td>
-							<td class="ban-start"></td>
-							<td class="ban-end"></td>
-						</tr>
-						<tr>
-							<td class="nickname"></td>
-							<td class="reason"></td>
-							<td class="ban-start"></td>
-							<td class="ban-end"></td>
-						</tr>
-						<tr>
-							<td class="nickname"></td>
-							<td class="reason"></td>
-							<td class="ban-start"></td>
-							<td class="ban-end"></td>
-						</tr>
-						<tr>
-							<td class="nickname"></td>
-							<td class="reason"></td>
-							<td class="ban-start"></td>
-							<td class="ban-end"></td>
-						</tr>
-						<tr>
-							<td class="nickname"></td>
-							<td class="reason"></td>
-							<td class="ban-start"></td>
-							<td class="ban-end"></td>
-						</tr>
-						<tr>
-							<td class="nickname"></td>
-							<td class="reason"></td>
-							<td class="ban-start"></td>
-							<td class="ban-end"></td>
-						</tr>
-						<tr>
-							<td class="nickname"></td>
-							<td class="reason"></td>
-							<td class="ban-start"></td>
-							<td class="ban-end"></td>
-						</tr>
-						<tr>
-							<td class="nickname"></td>
-							<td class="reason"></td>
-							<td class="ban-start"></td>
-							<td class="ban-end"></td>
-						</tr>
-						<tr>
-							<td class="nickname"></td>
-							<td class="reason"></td>
-							<td class="ban-start"></td>
-							<td class="ban-end"></td>
-						</tr>
-					</tbody>
-				</table>
-				<table class="ban-table">
-					<thead>
-						<tr>
-							<th>Ник</th>
-							<th>Причина</th>
-							<th>Дата бана</th>
-							<th>Дата разбана</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
 							<td class="nickname">testnick2</td>
 							<td class="reason">test2</td>
 							<td class="ban-start">datastart2</td>
 							<td class="ban-end">dataend2</td>
 						</tr>
-						<tr>
-							<td class="nickname"></td>
-							<td class="reason"></td>
-							<td class="ban-start"></td>
-							<td class="ban-end"></td>
-						</tr>
-						<tr>
-							<td class="nickname"></td>
-							<td class="reason"></td>
-							<td class="ban-start"></td>
-							<td class="ban-end"></td>
-						</tr>
-						<tr>
-							<td class="nickname"></td>
-							<td class="reason"></td>
-							<td class="ban-start"></td>
-							<td class="ban-end"></td>
-						</tr>
-						<tr>
-							<td class="nickname"></td>
-							<td class="reason"></td>
-							<td class="ban-start"></td>
-							<td class="ban-end"></td>
-						</tr>
-						<tr>
-							<td class="nickname"></td>
-							<td class="reason"></td>
-							<td class="ban-start"></td>
-							<td class="ban-end"></td>
-						</tr>
-						<tr>
-							<td class="nickname"></td>
-							<td class="reason"></td>
-							<td class="ban-start"></td>
-							<td class="ban-end"></td>
-						</tr>
-						<tr>
-							<td class="nickname"></td>
-							<td class="reason"></td>
-							<td class="ban-start"></td>
-							<td class="ban-end"></td>
-						</tr>
-						<tr>
-							<td class="nickname"></td>
-							<td class="reason"></td>
-							<td class="ban-start"></td>
-							<td class="ban-end"></td>
-						</tr>
-						<tr>
-							<td class="nickname"></td>
-							<td class="reason"></td>
-							<td class="ban-start"></td>
-							<td class="ban-end"></td>
-						</tr>
-						<tr>
-							<td class="nickname"></td>
-							<td class="reason"></td>
-							<td class="ban-start"></td>
-							<td class="ban-end"></td>
-						</tr>
-					</tbody>
-				</table>
-				<table class="ban-table">
-					<thead>
-						<tr>
-							<th>Ник</th>
-							<th>Причина</th>
-							<th>Дата бана</th>
-							<th>Дата разбана</th>
-						</tr>
-					</thead>
-					<tbody>
 						<tr>
 							<td class="nickname">testnick3</td>
 							<td class="reason">test3</td>
@@ -353,100 +209,10 @@
 							<td class="ban-end">dataend3</td>
 						</tr>
 						<tr>
-							<td class="nickname"></td>
-							<td class="reason"></td>
-							<td class="ban-start"></td>
-							<td class="ban-end"></td>
-						</tr>
-						<tr>
-							<td class="nickname"></td>
-							<td class="reason"></td>
-							<td class="ban-start"></td>
-							<td class="ban-end"></td>
-						</tr>
-						<tr>
-							<td class="nickname"></td>
-							<td class="reason"></td>
-							<td class="ban-start"></td>
-							<td class="ban-end"></td>
-						</tr>
-						<tr>
-							<td class="nickname"></td>
-							<td class="reason"></td>
-							<td class="ban-start"></td>
-							<td class="ban-end"></td>
-						</tr>
-						<tr>
-							<td class="nickname"></td>
-							<td class="reason"></td>
-							<td class="ban-start"></td>
-							<td class="ban-end"></td>
-						</tr>
-						<tr>
-							<td class="nickname"></td>
-							<td class="reason"></td>
-							<td class="ban-start"></td>
-							<td class="ban-end"></td>
-						</tr>
-						<tr>
-							<td class="nickname"></td>
-							<td class="reason"></td>
-							<td class="ban-start"></td>
-							<td class="ban-end"></td>
-						</tr>
-						<tr>
-							<td class="nickname"></td>
-							<td class="reason"></td>
-							<td class="ban-start"></td>
-							<td class="ban-end"></td>
-						</tr>
-						<tr>
-							<td class="nickname"></td>
-							<td class="reason"></td>
-							<td class="ban-start"></td>
-							<td class="ban-end"></td>
-						</tr>
-						<tr>
-							<td class="nickname"></td>
-							<td class="reason"></td>
-							<td class="ban-start"></td>
-							<td class="ban-end"></td>
-						</tr>
-					</tbody>
-				</table>
-				<table class="ban-table">
-					<thead>
-						<tr>
-							<th>Ник</th>
-							<th>Причина</th>
-							<th>Дата бана</th>
-							<th>Дата разбана</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
 							<td class="nickname">testnick4</td>
 							<td class="reason">test4</td>
 							<td class="ban-start">datastart4</td>
 							<td class="ban-end">dataend4</td>
-						</tr>
-						<tr>
-							<td class="nickname"></td>
-							<td class="reason"></td>
-							<td class="ban-start"></td>
-							<td class="ban-end"></td>
-						</tr>
-						<tr>
-							<td class="nickname"></td>
-							<td class="reason"></td>
-							<td class="ban-start"></td>
-							<td class="ban-end"></td>
-						</tr>
-						<tr>
-							<td class="nickname"></td>
-							<td class="reason"></td>
-							<td class="ban-start"></td>
-							<td class="ban-end"></td>
 						</tr>
 						<tr>
 							<td class="nickname"></td>
@@ -1053,6 +819,240 @@
 							<td class="reason">test12</td>
 							<td class="ban-start">datastart12</td>
 							<td class="ban-end">dataend12</td>
+						</tr>
+						<tr>
+							<td class="nickname"></td>
+							<td class="reason"></td>
+							<td class="ban-start"></td>
+							<td class="ban-end"></td>
+						</tr>
+						<tr>
+							<td class="nickname"></td>
+							<td class="reason"></td>
+							<td class="ban-start"></td>
+							<td class="ban-end"></td>
+						</tr>
+						<tr>
+							<td class="nickname"></td>
+							<td class="reason"></td>
+							<td class="ban-start"></td>
+							<td class="ban-end"></td>
+						</tr>
+						<tr>
+							<td class="nickname"></td>
+							<td class="reason"></td>
+							<td class="ban-start"></td>
+							<td class="ban-end"></td>
+						</tr>
+						<tr>
+							<td class="nickname"></td>
+							<td class="reason"></td>
+							<td class="ban-start"></td>
+							<td class="ban-end"></td>
+						</tr>
+						<tr>
+							<td class="nickname"></td>
+							<td class="reason"></td>
+							<td class="ban-start"></td>
+							<td class="ban-end"></td>
+						</tr>
+						<tr>
+							<td class="nickname"></td>
+							<td class="reason"></td>
+							<td class="ban-start"></td>
+							<td class="ban-end"></td>
+						</tr>
+						<tr>
+							<td class="nickname"></td>
+							<td class="reason"></td>
+							<td class="ban-start"></td>
+							<td class="ban-end"></td>
+						</tr>
+						<tr>
+							<td class="nickname"></td>
+							<td class="reason"></td>
+							<td class="ban-start"></td>
+							<td class="ban-end"></td>
+						</tr>
+						<tr>
+							<td class="nickname"></td>
+							<td class="reason"></td>
+							<td class="ban-start"></td>
+							<td class="ban-end"></td>
+						</tr>
+					</tbody>
+				</table>
+				<table class="ban-table">
+					<thead>
+						<tr>
+							<th>Ник</th>
+							<th>Причина</th>
+							<th>Дата бана</th>
+							<th>Дата разбана</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="nickname">testnick13</td>
+							<td class="reason">test13</td>
+							<td class="ban-start">datastart13</td>
+							<td class="ban-end">dataend13</td>
+						</tr>
+						<tr>
+							<td class="nickname"></td>
+							<td class="reason"></td>
+							<td class="ban-start"></td>
+							<td class="ban-end"></td>
+						</tr>
+						<tr>
+							<td class="nickname"></td>
+							<td class="reason"></td>
+							<td class="ban-start"></td>
+							<td class="ban-end"></td>
+						</tr>
+						<tr>
+							<td class="nickname"></td>
+							<td class="reason"></td>
+							<td class="ban-start"></td>
+							<td class="ban-end"></td>
+						</tr>
+						<tr>
+							<td class="nickname"></td>
+							<td class="reason"></td>
+							<td class="ban-start"></td>
+							<td class="ban-end"></td>
+						</tr>
+						<tr>
+							<td class="nickname"></td>
+							<td class="reason"></td>
+							<td class="ban-start"></td>
+							<td class="ban-end"></td>
+						</tr>
+						<tr>
+							<td class="nickname"></td>
+							<td class="reason"></td>
+							<td class="ban-start"></td>
+							<td class="ban-end"></td>
+						</tr>
+						<tr>
+							<td class="nickname"></td>
+							<td class="reason"></td>
+							<td class="ban-start"></td>
+							<td class="ban-end"></td>
+						</tr>
+						<tr>
+							<td class="nickname"></td>
+							<td class="reason"></td>
+							<td class="ban-start"></td>
+							<td class="ban-end"></td>
+						</tr>
+						<tr>
+							<td class="nickname"></td>
+							<td class="reason"></td>
+							<td class="ban-start"></td>
+							<td class="ban-end"></td>
+						</tr>
+						<tr>
+							<td class="nickname"></td>
+							<td class="reason"></td>
+							<td class="ban-start"></td>
+							<td class="ban-end"></td>
+						</tr>
+					</tbody>
+				</table>
+				<table class="ban-table">
+					<thead>
+						<tr>
+							<th>Ник</th>
+							<th>Причина</th>
+							<th>Дата бана</th>
+							<th>Дата разбана</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="nickname">testnick14</td>
+							<td class="reason">test14</td>
+							<td class="ban-start">datastart14</td>
+							<td class="ban-end">dataend14</td>
+						</tr>
+						<tr>
+							<td class="nickname"></td>
+							<td class="reason"></td>
+							<td class="ban-start"></td>
+							<td class="ban-end"></td>
+						</tr>
+						<tr>
+							<td class="nickname"></td>
+							<td class="reason"></td>
+							<td class="ban-start"></td>
+							<td class="ban-end"></td>
+						</tr>
+						<tr>
+							<td class="nickname"></td>
+							<td class="reason"></td>
+							<td class="ban-start"></td>
+							<td class="ban-end"></td>
+						</tr>
+						<tr>
+							<td class="nickname"></td>
+							<td class="reason"></td>
+							<td class="ban-start"></td>
+							<td class="ban-end"></td>
+						</tr>
+						<tr>
+							<td class="nickname"></td>
+							<td class="reason"></td>
+							<td class="ban-start"></td>
+							<td class="ban-end"></td>
+						</tr>
+						<tr>
+							<td class="nickname"></td>
+							<td class="reason"></td>
+							<td class="ban-start"></td>
+							<td class="ban-end"></td>
+						</tr>
+						<tr>
+							<td class="nickname"></td>
+							<td class="reason"></td>
+							<td class="ban-start"></td>
+							<td class="ban-end"></td>
+						</tr>
+						<tr>
+							<td class="nickname"></td>
+							<td class="reason"></td>
+							<td class="ban-start"></td>
+							<td class="ban-end"></td>
+						</tr>
+						<tr>
+							<td class="nickname"></td>
+							<td class="reason"></td>
+							<td class="ban-start"></td>
+							<td class="ban-end"></td>
+						</tr>
+						<tr>
+							<td class="nickname"></td>
+							<td class="reason"></td>
+							<td class="ban-start"></td>
+							<td class="ban-end"></td>
+						</tr>
+					</tbody>
+				</table>
+				<table class="ban-table">
+					<thead>
+						<tr>
+							<th>Ник</th>
+							<th>Причина</th>
+							<th>Дата бана</th>
+							<th>Дата разбана</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="nickname">testnick15</td>
+							<td class="reason">test15</td>
+							<td class="ban-start">datastart15</td>
+							<td class="ban-end">dataend15</td>
 						</tr>
 						<tr>
 							<td class="nickname"></td>

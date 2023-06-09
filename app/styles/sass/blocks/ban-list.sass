@@ -33,11 +33,16 @@
 			min-height: 72px
 			color: var(--text-color)
 			background: var(--color-ban)
-			&:is(:hover, :active)
+			&:hover
 				background: #05AEDA
 				color: var(--text-color-focus)
+			&:active
+				color: var(--text-color)
+				background: var(--color-ban)
+				transition: none
 	&-content
 		min-height: 700px
+		margin-bottom: rem(32)
 	&-table
 		display: none
 		width: 100%
@@ -47,9 +52,13 @@
 		&.active
 			display: table
 		th, td
+			min-height: 75px
+			height: 75px
 			border-bottom: 3px solid #fff
-			border-right: 3px solid #fff	
-			padding-block: rem(25)
+			border-right: 3px solid #fff
+			padding: rem(25) rem(10)
+			overflow: hidden
+			text-overflow: ellipsis
 		tr
 			text-align: center
 			&:last-child td
@@ -59,4 +68,3 @@
 			.nickname
 				min-width: 125px
 				max-width: 125px
-

@@ -11,7 +11,7 @@
 			right: -450px
 			max-width: 450px
 			width: 100%
-			height: 100vh
+			height: 100%
 			padding: rem(60) rem(30)
 			background: var(--body-color)
 			transition: var(--trt-darktheme)
@@ -47,8 +47,6 @@
 	.hero
 		&-slide
 			padding-inline: rem(15)
-			&-server
-				margin-bottom: rem(70)
 		&-middle-os
 			display: none
 		&-server-list
@@ -101,7 +99,7 @@
 		&-bot
 			margin-top: unset
 			@include adaptive-value('padding-inline', 240, 15, 1)
-	
+
 	.ban
 		&-header
 			justify-content: center
@@ -129,7 +127,7 @@
 		padding-block: rem(120) rem(60)
 
 	.terms-inner, .policy-inner, .commands-inner
-			@include adaptive-value('padding-inline', 100, 15, 1)
+		@include adaptive-value('padding-inline', 100, 15, 1)
 
 @media ( max-width: 1200px )
 	.swiper-bg-random
@@ -175,7 +173,7 @@
 						margin-inline: auto
 						width: rem(120)
 						height: auto
-				
+
 	.wrapper-form
 		max-width: 850px
 		.signup-form-links
@@ -234,13 +232,18 @@
 				display: block
 				width: 100%
 				padding-block: rem(25)
-		
 
 	.hero
+		&-swiper
+			height: 100vh
+			.swiper-pagination
+				bottom: 2rem
+		&-slide-server
+			padding-inline: rem(70)
 		&-content
 			&-title
 				margin-bottom: rem(15)
-			&-text 
+			&-text
 				margin-bottom: rem(10)
 			&-subtitle
 				font-size: 1.5rem
@@ -324,7 +327,7 @@
 
 	.policy-title
 		font-size: rem(24)
-	
+
 	.moderator
 		.container
 			padding-block: rem(120) rem(60)
@@ -348,21 +351,21 @@
 
 	.commands
 		padding-block: rem(120) rem(60)
-		
+
 	.footer
 		.container
 			gap: 30px
 		&-list
 			flex-wrap: wrap
 			justify-content: center
-			gap: 15px
+			align-items: center
 			text-align: center
+			gap: 15px
 		&-item
 			display: block
 			width: 45%
 		&-copy
 			text-align: center
-
 
 @media ( max-width: 768px )
 	:root
@@ -372,13 +375,21 @@
 
 	.hero
 		margin-bottom: rem(15)
+		&-swiper
+			padding-bottom: 5rem
+			.swiper-slide
+				height: auto
+			.btn-start
+				width: 100%
+				max-width: 370px
+				padding: 1.125rem 0
 		&-content
 			text-align: center
 		&-slide
-			padding-top: rem(80)
+			height: 100%
 			&-server
-				padding-top: rem(30)
-				margin-bottom: rem(100)
+				padding: rem(30) rem(20)
+				margin-bottom: 0
 		&-server
 			&-list
 				min-height: 300px
@@ -403,7 +414,7 @@
 			&-btn.btn-start
 				width: 100%
 				max-width: 100%
-		&-info 
+		&-info
 			width: 100%
 			&-btn.btn-start
 				padding-inline: rem(15)
@@ -451,7 +462,7 @@
 		.btn-sign
 			min-width: max-content
 			padding: rem(32) rem(40)
-	
+
 	.download
 		&-wrapper
 			grid-template-columns: 1fr
@@ -491,9 +502,31 @@
 		.select-btn
 			padding-inline: rem(15) rem(90)
 		&-content
-			overflow-x: auto
+			height: max-content
+			min-height: 360px
 		&-table
 			min-width: 738px
+			thead, thead th, tbody
+				display: block
+			tr td:last-child, tr th:last-child
+				border-right: 3px solid #fff
+				border-bottom: none
+			tr:last-child td
+				border-bottom: 3px solid #fff
+				&:last-child
+					border-bottom: none
+			thead
+				float: left
+			tbody
+				overflow-x: auto
+				overflow-y: hidden
+				scroll-behavior: unset
+				tr
+					display: table-cell
+			td
+				display: block
+			&.active
+				display: block
 
 	.donat
 		&-form
@@ -520,27 +553,61 @@
 	.hero-server-list
 		flex-wrap: wrap
 		flex-direction: row
+		min-height: 330px
 	.hero-server-item
 		flex-direction: column
 		width: 100%
-		gap: 15px
-		padding-bottom: rem(30)
-		text-align: center
-	.hero-server-online
-		justify-content: center
+
+	.profile-info
+		&-btns
+			margin-top: 1.5rem
+		.balance-btn
+			white-space: nowrap
+		.form-label-field
+			padding: 1.1rem 1.25rem
+			margin-bottom: 1rem
+		.form-label-btn
+			position: static
+			top: auto
+			right: auto
+			transform: none
+			text-transform: none
+
+			display: flex
+			align-items: center
+			justify-content: center
+			max-width: 100%
+			width: 100%
+			font-size: rem(24)
+			font-weight: 700
+			padding: rem(18) rem(20)
+			transition: background-color var(--trt-theme), color var(--trt-theme), box-shadow var(--trt-theme)
+			border-radius: var(--border-radius-2)
+			background-color: #05AEDA
+			color: #fff
+			&:hover, &:focus
+				color: #fff
+				box-shadow: var(--box-shadow-1)
+			&:active
+				background-color: #fff
+				color: #000
+				box-shadow: var(--box-shadow-1)
+				transition: none
 
 	.questions
 		input, .questions-list-title, .questions-item-control, .questions-item-content, .questions-item.active .questions-item-content
-			padding-left: rem(20)
+			padding-left: rem(32)
+		input
+			padding-inline: rem(32) rem(92)
+		&-search button
+			padding-inline: rem(30)
+			.search
+				width: 2rem
+				height: auto
 		&-list
 			margin-bottom: rem(60)
 		.questions-item-content, .questions-item.active .questions-item-content
-			padding-inline: rem(20)
-	
-@media ( min-width: 2048px )
-	.swiper-bg-random
-		min-height: unset
-		height: 100vh
+			padding-inline: rem(32)
 
 @media ( min-width: 2400px )
 
@@ -582,6 +649,11 @@
 		&-transparent
 			font-size: rem(48)
 
+	.popup
+		max-width: 2000px
+		.form-title
+			font-size: rem(80)
+
 	.link::after
 		height: rem(4)
 		bottom: rem(-4)
@@ -617,7 +689,7 @@
 	.ri-sun-line
 		width: rem(94)
 		height: rem(96)
-	
+
 	.img-cover
 		width: 30vw
 
@@ -905,7 +977,7 @@
 					font-size: rem(64)
 			button
 				padding: rem(50) rem(80)
-				border-radius: 0 rem(90) rem(90) 0 
+				border-radius: 0 rem(90) rem(90) 0
 				.search
 					width: rem(86)
 					height: rem(86)
@@ -1116,7 +1188,7 @@
 		&-table
 			th, td
 				border-bottom: 6px solid #fff
-				border-right: 6px solid #fff	
+				border-right: 6px solid #fff
 				padding-block: rem(50)
 			tr .nickname
 				min-width: 250px
@@ -1207,6 +1279,12 @@
 					height: rem(90)
 		&-transparent
 			font-size: rem(72)
+
+	.popup
+		max-width: 2600px
+		.form-title
+			font-size: rem(120)
+
 	.link::after
 		height: rem(6)
 		bottom: rem(-6)
@@ -1280,12 +1358,12 @@
 
 	.body-inner
 		border-radius: rem(30)
-	
+
 	.body-text-item.list-string
-			padding-left: rem(60)
-			&::after
-				font-size: rem(60)
-				top: rem(24)
+		padding-left: rem(60)
+		&::after
+			font-size: rem(60)
+			top: rem(24)
 
 	.header
 		padding-block: 100px 160px
@@ -1314,7 +1392,7 @@
 
 	.hero
 		&-swiper
-			padding-top: rem(380)
+			padding-block: rem(380) rem(160)
 		&-slide
 			gap: 10%
 			&-server
@@ -1499,7 +1577,7 @@
 					font-size: rem(96)
 			button
 				padding: rem(75) rem(160)
-				border-radius: 0 rem(180) rem(180) 0 
+				border-radius: 0 rem(180) rem(180) 0
 				.search
 					width: rem(129)
 					height: rem(129)
@@ -1582,7 +1660,7 @@
 		&-inner
 			padding: rem(150) rem(310) rem(150)
 		&-text
-			&-title 
+			&-title
 				margin-bottom: rem(75)
 				& + .policy-text-title
 					margin-top: rem(90)
@@ -1706,7 +1784,7 @@
 		&-table
 			th, td
 				border-bottom: 9px solid #fff
-				border-right: 9px solid #fff	
+				border-right: 9px solid #fff
 				padding-block: rem(75)
 			tr .nickname
 				min-width: 375px
