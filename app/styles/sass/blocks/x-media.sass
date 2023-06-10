@@ -46,8 +46,6 @@
 			display: inline-block
 
 	.hero
-		&-slide
-			padding-inline: rem(15)
 		&-middle-os
 			display: none
 		&-server-list
@@ -134,6 +132,9 @@
 	.swiper-bg-random
 		min-height: 100vh
 
+	.hero-slide
+		gap: 1rem
+
 	.profile
 		padding-block: rem(120)
 		&-inner
@@ -175,8 +176,16 @@
 						width: rem(120)
 						height: auto
 
-	.wrapper-form
-		max-width: 850px
+	.popup
+		&-content
+			max-width: 650px
+			.hero-slide-server
+				padding: rem(40) rem(60)
+		&-form-close
+			top: rem(30)
+			right: rem(50)
+		.form
+			padding: rem(30) rem(50)
 		.signup-form-links
 			display: none
 
@@ -443,13 +452,23 @@
 		&-item:nth-child(n+1) .connect-item-img
 			width: rem(150)
 
-	.wrapper-form
-		max-width: 450px
-		padding: rem(20) rem(35)
+	.popup
+		&-content
+			max-width: 450px
+			.hero-slide-server
+				padding: rem(20) rem(35)
+		&-close
+			top: rem(10)
+			right: rem(10)
+		&-form-close
+			top: rem(20)
+			right: rem(30)
 		input
 			text-align: center
 			&::placeholder
 				text-align: center
+		.form
+			padding: rem(20) rem(30)
 		.form-title
 			text-align: center
 			button:first-of-type:after
@@ -560,8 +579,13 @@
 	.hero-server-item
 		flex-direction: column
 		width: 100%
-	.hero-swiper .swiper-pagination
-		bottom: 0
+	.hero-swiper
+		.swiper-help
+			display: block
+		.hero-button-next, .hero-button-prev
+			display: none
+	.hero-slide
+		padding-inline: 1rem
 
 	.profile-info
 		&-btns
@@ -614,6 +638,11 @@
 		.questions-item-content, .questions-item.active .questions-item-content
 			padding-inline: rem(32)
 
+	.popup
+		.btn-sign
+			padding: 1.5rem .7rem
+			min-width: 100%
+
 @media ( min-width: 2400px )
 
 	:root
@@ -653,11 +682,6 @@
 					height: rem(60)
 		&-transparent
 			font-size: rem(48)
-
-	.popup
-		max-width: 2000px
-		.form-title
-			font-size: rem(80)
 
 	.link::after
 		height: rem(4)
@@ -723,10 +747,14 @@
 		min-height: rem(700)
 		border-radius: rem(40)
 
-	.wrapper-form
-		max-width: 2340px
-		border-radius: rem(120)
-		padding: rem(120) rem(320) rem(80) rem(280)
+	.popup
+		max-width: 100%
+		padding: rem(100)
+		&-content
+			min-width: 70vw
+		&-close
+			width: rem(90)
+			height: auto
 		.form
 			gap: 70px
 			&-title
@@ -769,8 +797,10 @@
 
 	.hero
 		&-swiper
+			--swiper-navigation-size: 7rem
 			padding-top: rem(190)
 		&-slide
+			padding-inline: 7rem
 			gap: 15%
 			&-server
 				gap: 50px
@@ -1285,11 +1315,6 @@
 		&-transparent
 			font-size: rem(72)
 
-	.popup
-		max-width: 2600px
-		.form-title
-			font-size: rem(120)
-
 	.link::after
 		height: rem(6)
 		bottom: rem(-6)
@@ -1326,10 +1351,9 @@
 		min-height: rem(700)
 		border-radius: rem(40)
 
-	.wrapper-form
-		max-width: 3510px
-		border-radius: rem(180)
-		padding: rem(180) rem(480) rem(120) rem(420)
+	.popup
+		&-close
+			width: rem(135)
 		.form
 			gap: 105px
 			&-title
@@ -1397,8 +1421,10 @@
 
 	.hero
 		&-swiper
+			--swiper-navigation-size: 10rem
 			padding-block: rem(380) rem(160)
 		&-slide
+			padding-inline: 10rem
 			gap: 10%
 			&-server
 				gap: 75px

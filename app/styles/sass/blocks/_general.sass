@@ -21,6 +21,25 @@ body.nav-active
 	margin-inline: auto
 	padding-inline: $gutter
 
+.show
+	overflow-y: hidden
+
+.icon
+	svg
+		display: block
+		width: 100%
+		height: 100%
+		fill: currentColor
+		object-fit: cover
+
+@keyframes slide-right
+	0%
+		transform: translateX(0)
+	50%
+		transform: translateX(-1.5rem)
+	100%
+		transform: translateX(0)
+
 .btn
 	display: flex
 	align-items: center
@@ -275,30 +294,53 @@ body.nav-active
 	max-width: 1517px
 
 .popup
-	display: none
-	max-width: 1170px
 	width: 100%
-	margin-inline: auto
-	background: var(--body-form)
-	border-radius: rem(60)
-	padding: rem(60) rem(160) rem(40) rem(140)
+	height: 100%
 	position: fixed
-	top: 50%
-	left: 50%
-	transform: translate(-50%, -50%)
+	top: 0
+	left: 0
+	opacity: 0
+	visibility: hidden
+	overflow-x: hidden
+	overflow-y: auto
 	z-index: 100
-	&.active
-		display: block
+	background-color: rgba(16, 16, 21, .75)
+	&.show
+		opacity: 1
+		visibility: visible
+	&-body
+		min-height: 100%
+		max-width: max-content
+		max-height: max-content
+		margin-inline: auto
+		display: flex
+		align-items: center
+		justify-content: center
+		padding: rem(30) rem(10)
+	&-content
+		position: relative
+	&-close
+		width: rem(45)
+		height: rem(45)
+		position: absolute
+		top: rem(34)
+		right: rem(34)
+	&-form-close
+		top: rem(50)
+		right: rem(140)
 	.form
 		display: flex
 		flex-direction: column
 		align-items: center
 		gap: 35px
+		background-color: var(--body-form)
+		padding: rem(50) rem(140)
+		border-radius: var(--border-radius-3)
 		&-title
 			font-size: rem(40)
 			button
 				color: var(--color-toggle)
-				padding: rem(10)
+				padding-inline: rem(10)
 				transition: var(--trt)
 				&.active
 					color: #fff !important

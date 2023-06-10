@@ -1,9 +1,9 @@
-import Swiper, { Pagination, Controller } from 'swiper'
+import Swiper, { Navigation, Controller } from 'swiper'
 import { ExperienceBar } from './experience.js'
 import * as THREE from 'three'
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
-Swiper.use([Pagination, Controller])
+Swiper.use([Navigation, Controller])
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -20,9 +20,9 @@ document.addEventListener('DOMContentLoaded', () => {
 	const swiperBg = new Swiper('.swiper-bg', {});
 
 	const swiperHero = new Swiper('.hero-swiper', {
-		pagination: {
-			el: '.swiper-pagination',
-			clickable: true,
+		navigation: {
+			nextEl: '.hero-button-next',
+			prevEl: '.hero-button-prev',
 		},
 	})
 
@@ -87,103 +87,114 @@ document.addEventListener('DOMContentLoaded', () => {
 	//NAVBAR TOGGLER FOR MOBILE
 	const navbar = document.querySelector('[data-navbar]'),
 		navTogglers = document.querySelectorAll('[data-nav-toggler]'),
-		overlay = document.querySelector('[data-overlay]')
+		overlay = document.querySelector('[data-overlay]'),
+		HTMLElement = document.querySelector('html')
 
 	const togglerNavbar = function () {
 		if (overlay.classList.contains('active')) {
 			navbar.classList.remove('active'),
 				overlay.classList.remove('active'),
 				document.body.classList.remove('nav-active')
+			HTMLElement.classList.remove('show')
 		} else {
 			navbar.classList.add('active'),
 				overlay.classList.add('active'),
 				document.body.classList.add('nav-active')
+			HTMLElement.classList.add('show')
 		}
 	}
 
 	addEventOnElements(navTogglers, 'click', togglerNavbar)
 	// overlay.addEventListener('click' , closeNavbar)
 
-	//POPUP REGISTRATION FORM
-	const connectForm = document.querySelectorAll('.popup'),
-		signupForm = document.querySelector('[data-form-signup]'),
-		loginForm = document.querySelector('[data-form-login]'),
-		forgotForm = document.querySelector('[data-form-forgot]'),
-		loginLink = document.querySelector('[data-login-link]'),
-		signLink = document.querySelector('[data-signup-link]'),
-		forgotLink = document.querySelector('[data-forgot-link]'),
-		signupBtn = document.querySelectorAll('[data-btn-signup]')
+	//POPUP
+	class Popup {
+		constructor() {
+			this.openButtons = document.querySelectorAll('[data-popup-target]');
+			this.closeButtons = document.querySelectorAll('.popup-close');
+			this.popups = document.querySelectorAll('.popup');
+			this.registerEvents();
+		}
 
-	const openForm = function () {
-		overlay.classList.add('active')
-		signupForm.classList.add('active')
-		document.body.classList.add('nav-active')
-	}
-
-	if (loginLink) {
-		loginLink.addEventListener('click', () => {
-			signupForm.classList.remove('active')
-			loginForm.classList.add('active')
-		})
-	}
-
-	if (signLink) {
-		signLink.addEventListener('click', () => {
-			loginForm.classList.remove('active')
-			signupForm.classList.add('active')
-		})
-	}
-
-	if (forgotLink) {
-		forgotLink.addEventListener('click', () => {
-			loginForm.classList.remove('active')
-			forgotForm.classList.add('active')
-		})
-	}
-
-	if (signupForm) {
-		addEventOnElements(signupBtn, 'click', openForm),
-			overlay.addEventListener('click', () => {
-				overlay.classList.remove('active')
-				signupForm.classList.remove('active')
-				loginForm.classList.remove('active')
-				forgotForm.classList.remove('active')
-				document.body.classList.remove('nav-active')
-			})
-	}
-
-	//POPUP GAMES SERVER
-	const serverButtons = document.querySelectorAll('[data-btn-miniGame], [data-btn-oneBlock], [data-btn-survival], [data-btn-town]');
-	const serverPopups = document.querySelectorAll('[data-server-miniGame], [data-server-oneBlock], [data-server-survival], [data-server-town]');
-
-	if (serverButtons && serverPopups) {
-		serverButtons.forEach((button, index) => {
-			button.addEventListener('click', () => {
-				serverPopups[index].classList.add('active');
-				overlay.classList.add('active');
+		registerEvents() {
+			this.openButtons.forEach(button => {
+				button.addEventListener('click', () => {
+					const popupId = button.getAttribute('data-popup-target');
+					const currentPopup = button.closest('.popup');
+					if (currentPopup) {
+						this.closePopup(currentPopup).then(() => {
+							this.openPopup(popupId);
+						});
+					} else {
+						this.openPopup(popupId);
+					}
+				});
 			});
-		});
 
-		overlay.addEventListener('click', () => {
-			serverPopups.forEach(popup => popup.classList.remove('active'));
-			overlay.classList.remove('active');
-		});
+			this.closeButtons.forEach(button => {
+				button.addEventListener('click', () => {
+					this.closePopup(button.closest('.popup'));
+				});
+			});
+
+			this.popups.forEach(popup => {
+				popup.addEventListener('click', (event) => {
+					if (event.target === popup) {
+						this.closePopup(popup);
+					}
+				});
+			});
+
+			document.addEventListener('keydown', (event) => {
+				if (event.key === 'Escape') {
+					this.popups.forEach(popup => {
+						this.closePopup(popup);
+					});
+				}
+			});
+		}
+
+		openPopup(popupId) {
+			const popup = document.querySelector(popupId);
+			if (popup) {
+				popup.classList.add('show');
+				document.body.classList.add('nav-active');
+				document.documentElement.classList.add('show');
+			}
+		}
+
+		closePopup(popup) {
+			return new Promise((resolve) => {
+				if (popup) {
+					popup.classList.remove('show');
+					document.body.classList.remove('nav-active');
+					document.documentElement.classList.remove('show');
+					popup.addEventListener('transitionend', resolve, { once: true });
+				} else {
+					resolve();
+				}
+			});
+		}
 	}
+
+	new Popup();
+
+
 
 
 	//PROFILE LINK SIGN IN
-	const profileLoginLink = document.getElementById('profileSignin');
-	if (profileLoginLink) {
-		profileLoginLink.addEventListener('click', (event) => {
-			event.preventDefault();
-			window.location.href = 'connect.html?showSignin=true';
-		});
-	}
+	// const profileLoginLink = document.getElementById('profileSignin');
+	// if (profileLoginLink) {
+	// 	profileLoginLink.addEventListener('click', (event) => {
+	// 		event.preventDefault();
+	// 		window.location.href = 'connect.html?showSignin=true';
+	// 	});
+	// }
 
-	if (loginForm && new URLSearchParams(window.location.search).get('showSignin') === 'true') {
-		loginForm.classList.add('active')
-		overlay.classList.add('active')
-	}
+	// if (forms.login && new URLSearchParams(window.location.search).get('showSignin') === 'true') {
+	// 	forms.login.classList.add('show')
+	// 	overlay.classList.add('active')
+	// }
 
 
 	// OPEN AND CLOSE ACCORDION IN QUESTIONS.HTML

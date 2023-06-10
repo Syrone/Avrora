@@ -3,6 +3,7 @@
 		padding-inline: 0
 		max-width: 100%
 	&-swiper
+		--swiper-navigation-size: 3.5rem
 		padding-block: rem(150) rem(80)
 		.swiper-slide
 			height: auto
@@ -20,6 +21,28 @@
 					transition: var(--trt-theme)
 		.swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet
 			margin: 0 rem(10)
+		.hero-button-next, .hero-button-prev
+			width: var(--swiper-navigation-size)
+			top: var(--swiper-navigation-top-offset,55%)
+			&.swiper-button-disabled
+				opacity: 0
+			.icon
+				&-nav-next, &-nav-prev
+					color: var(--text-color)
+				&-nav-next
+					transform: rotate(90deg)
+				&-nav-prev
+					transform: rotate(-90deg)
+		.hero-button-next:after, .hero-button-prev:after
+			all: unset
+		.swiper-help
+			display: none
+			position: absolute
+			bottom: -4rem
+			right: 1rem
+			width: 6rem
+			height: auto
+			animation: slide-right 2s infinite
 	&-content
 		&-title
 			margin-bottom: rem(25)
@@ -35,6 +58,7 @@
 		align-items: center
 		height: 100%
 		gap: 100px
+		padding-inline: 5rem
 		&-server
 			display: flex
 			flex-direction: column
@@ -63,7 +87,8 @@
 			gap: 30px
 			padding-inline: 40px
 			max-height: 500px
-			overflow-y: scroll
+			overflow-y: auto
+			overflow-x: hidden
 			&::-webkit-scrollbar
 				width: 12px
 				background-color: transparent
@@ -128,6 +153,3 @@
 			transform: translateY(-50%)
 			transition: var(--trt-theme)
 			z-index: -1
-
-
-
