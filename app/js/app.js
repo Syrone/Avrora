@@ -114,6 +114,12 @@ document.addEventListener('DOMContentLoaded', () => {
 			this.closeButtons = document.querySelectorAll('.popup-close');
 			this.popups = document.querySelectorAll('.popup');
 			this.registerEvents();
+
+			const urlParams = new URLSearchParams(window.location.search);
+			const popupParam = urlParams.get('popup');
+			if (popupParam) {
+				this.openPopup(`#${popupParam}`);
+			}
 		}
 
 		registerEvents() {
@@ -179,25 +185,78 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	new Popup();
 
+	//Sign up and sign in / change button
+	const registerBtn = document.getElementById('registerBtn');
+	const accountBtn = document.getElementById('accountBtn');
+	const registrationForm = document.getElementById('signupForm');
+	const loginForm = document.getElementById('loginForm');
+	const popup = new Popup()
+
+	const changeButton = () => {
+		registerBtn.classList.remove('active')
+		accountBtn.classList.add('active')
+	};
 
 
+	if (registrationForm) {
+		const registerUser = (event) => {
+			event.preventDefault();
 
-	//PROFILE LINK SIGN IN
-	// const profileLoginLink = document.getElementById('profileSignin');
-	// if (profileLoginLink) {
-	// 	profileLoginLink.addEventListener('click', (event) => {
-	// 		event.preventDefault();
-	// 		window.location.href = 'connect.html?showSignin=true';
-	// 	});
-	// }
+			const username = document.getElementById('username').value;
+			const email = document.getElementById('email').value;
+			const password = document.getElementById('password').value;
 
-	// if (forms.login && new URLSearchParams(window.location.search).get('showSignin') === 'true') {
-	// 	forms.login.classList.add('show')
-	// 	overlay.classList.add('active')
-	// }
+			const userData = {
+				username,
+				email,
+				password,
+			};
+
+			console.log('Данные пользователя:', userData);
+
+			setTimeout(() => {
+				changeButton();
+				const registrationPopup = document.querySelector('#signUp');
+				popup.closePopup(registrationPopup);
+			}, 2000);
+		};
+
+		registrationForm.addEventListener('submit', registerUser);
+	}
+
+	if (loginForm) {
+		const loginUser = (event) => {
+			event.preventDefault();
+
+			const email = document.getElementById('loginEmail').value;
+			const password = document.getElementById('loginPassword').value;
+
+			const loginData = {
+				email,
+				password,
+			};
+
+			console.log('Данные для входа:', loginData);
+
+			setTimeout(() => {
+				changeButton();
+				const loginPopup = document.querySelector('#signIn');
+				popup.closePopup(loginPopup);
+			}, 2000);
+		};
+
+		loginForm.addEventListener('submit', loginUser);
+	}
+
+	const profileSignoutButton = document.getElementById('profileSignout');
+	if (profileSignoutButton) {
+		profileSignoutButton.addEventListener('click', () => {
+			window.location.href = 'connect.html?popup=signIn';
+		});
+	}
 
 
-	// OPEN AND CLOSE ACCORDION IN QUESTIONS.HTML
+	//ACCORDION IN QUESTIONS.HTML
 	const accordions = document.querySelectorAll('[data-accordion]')
 
 	accordions.forEach(el => {

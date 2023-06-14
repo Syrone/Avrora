@@ -1220,7 +1220,8 @@
 			gap: 30px
 			margin-bottom: rem(90)
 			.ban-search-field
-				min-height: 144px
+				min-height: unset
+				max-width: 100%
 				padding: rem(44)
 			.ban-search-btn
 				padding-block: rem(44)
@@ -1283,10 +1284,11 @@
 		&-list
 			gap: 68px
 
-@media ( min-width: 3000px )
+@media (min-width: 3000px)
 
 	:root
 		--fontSize: 4rem
+		--filter-blur: blur(calc(100px + 3vw))
 
 	h1, h2
 		font-size: rem(144)
@@ -1435,7 +1437,14 @@
 			gap: 10%
 			&-server
 				gap: 75px
+				max-width: 90vw
+		&-image .img-cover
+			width: 30vw
+			max-width: 900px
 		&-content
+			&-subtitle
+				font-size: 6rem
+				margin-bottom: 5rem
 			&-text
 				max-width: rem(1500)
 		&-server-list
@@ -1834,8 +1843,16 @@
 			@include adaptive-value('padding-inline', 300, 100, 2)
 		&-block
 			max-width: 1250px
+			&-btn.btn-start
+				font-size: calc(1rem + .8vw)
+				width: 100%
+				max-width: 50%
+				padding: 1.875rem
 		.balance-btn, .profile-info-btn
-			font-size: 4rem
+			font-size: calc(1rem + 1vw)
+			padding: 2.5rem
+			width: 100%
+			max-width: 50%
 		.form-label-field
 			padding-inline: 25.5rem 51rem
 
@@ -1847,11 +1864,47 @@
 		&-list
 			gap: 102px
 
-@media ( min-width: 3600px )
+@media ( min-width: 4000px )
+	:root
+		--filter-blur: blur(200px)
+
 	.header
 		.nav-list, .nav-buttons
 			gap: 200px
 
-	.profile
-		.balance-btn, .profile-info-btn
-			font-size: 2.2vw
+	.container
+		max-width: 3840px
+		padding-inline: 100px
+
+	.hero-swiper
+		max-width: 4400px
+		padding-inline: 150px
+			
+
+	.popup-content
+		min-width: 3600px
+
+	.cta-wrapper, .commands
+		.container
+			padding-inline: 100px
+		&-chat-img
+			max-width: 1100px
+
+	.news-top-img
+		max-width: 1000px
+
+	.profile, .questions, .rules-text, .commands, .news, .terms, .policy
+		.container
+			padding-inline: 250px
+
+	.rules-header
+		.container
+			padding-inline: 500px
+
+	.ban.cta-wrapper, .moderator.cta-wrapper
+		.container
+			max-width: 3840px
+			padding-inline: 250px
+
+	.hero-slide-server
+		max-width: 3600px
